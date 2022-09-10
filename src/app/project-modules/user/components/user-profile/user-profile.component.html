@@ -1,0 +1,45 @@
+  <div fxLayout="row"  fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="start start" fxLayoutAlign.sm="start stretch" fxLayoutAlign.xs="start stretch" fxLayoutGap='70px' class="main-div ">
+    <div  fxFlex='35' fxFlex.md='45' fxFlex.sm  fxFlex.xs  fxLayout="column" fxLayoutAlign="center center" fxLayoutGap='20px' class="profile-div">
+       <div style="position: relative;" >
+         <img [src]='croppedImage || "/assets/icons/avatar.jpg"' onerror="this.onerror=null;this.src='assets/icons/avatar.jpg';" class="profile-pic">
+         <label for="profilePic" class="change-profile-icon"><img src="/assets/icons/edit-profile.png" alt="" class="edit-icon"></label>
+         <mat-spinner color="primary" class="spinner" *ngIf="uploadSpinner" diameter="50">hhh</mat-spinner>
+         <input type="file" accept="image/*" #profilePic id="profilePic"  (change)="fileChangeEvent($event)" style="display: none;;">
+         <image-cropper 
+            [imageChangedEvent]="imageChangedEvent" 
+            [maintainAspectRatio]="true" 
+            [aspectRatio]="4 / 4"
+            [resizeToWidth]="256" 
+            [roundCropper]="true"
+            (imageCropped)="imageCropped($event)">
+         </image-cropper>
+       </div>
+      <h3 class="profile-name">{{profileData?.first_name}}</h3>
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap='10px' style="padding-top: 20px;">
+         <img src="/assets/icons/logout-active.png" alt="" width="22px" height="22px" style="cursor: pointer;"(click)='general.logOut()'>
+         <h3 class="log-out" (click)='general.logOut()'>Logout</h3>
+      </div>
+    </div>
+    <div fxFlex='40'  fxFlex.md='50' fxFlex.sm  fxFlex.xs  fxLayout="column" fxLayoutAlign="center center" fxLayoutAlign.sm="center center"  fxLayoutAlign.xs="center center" fxLayoutGap='40px' >
+        <form style="width: 100%;" [formGroup]="formGroup">
+            <div fxLayout='column' fxLayoutGap="20px" style="width: 100%;padding-top: 10px;">
+                <div fxLayout='column'>
+                   <label class="form-label">Name</label>
+                   <input type="text" class="form-input" placeholder="Enter your name" formControlName="first_name">
+                </div>
+                <div fxLayout='column'>
+                   <label class="form-label">Email</label>
+                   <input type="text" class="form-input" placeholder="Enter your Email" formControlName="email">
+                </div>
+                <div fxLayout='column'>
+                   <label class="form-label">Phone Number</label>
+                   <input type="text" class="form-input" placeholder="Enter phone number" formControlName="phone_no">
+                </div>
+            </div>
+        </form>
+        <div fxLayout='column' fxLayoutGap='20px' fxLayoutAlign.sm="start center" fxLayoutAlign.gt-lg="start center" fxLayoutAlign.xs="start center" style="width: 100%;">
+         <button class="change-password-button" style="visibility: hidden;"></button>
+         <button class="save-change-button" (click)="formGroup?.valid?onSubmit(formGroup.value):toastr.error('enter required fields')">Save Changes</button>
+        </div>
+    </div>
+  </div>

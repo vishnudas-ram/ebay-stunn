@@ -1,0 +1,50 @@
+
+<drag-scroll class="scroll" fxLayout="row" [scrollbar-hidden]="true">
+
+          <div fxLayout="column"  *ngFor="let item of subscriptionPlans" class="card">
+            <div fxLayout="column" fxLayoutAlign="center center">
+                <img style="margin-top: 15px;" class="card-logo" [src]='item.logo'>
+                <h4 class="card-plan">{{item.plan}}</h4>
+                <h4 *ngIf="item?.status=='addon'">Only available for anchor plan</h4>
+                <h4 class="price"> {{item.price}}<span class="price-sub"> 円 / <span class="price-sub" style=" color: #a5a5a5;">月</span></span>
+                </h4>
+            </div>
+
+            <div fxLayout="column" style="padding:30px 20px 20px 20px;">
+                <div fxLayout="row" fxLayoutAlign='center center' *ngIf="item?.status!='addon'">
+                    <h4 class="descript">{{item.description1}}</h4>
+                    <div fxFlex class="dotted-line"></div>
+                    <h4 class="item-pricing">{{item.label1}}</h4>
+                </div>
+                <div fxLayout="row" fxLayoutAlign='center center' [ngClass]="{'add-on-label':item?.status=='addon'}">
+                    <h4 class="descript">{{item.description2}}</h4>
+                    <div fxFlex class="dotted-line"></div>
+                    <h4 class="item-pricing">{{item.label2}}</h4>
+                </div>
+                <div fxLayout="row" fxLayoutAlign='center center'>
+                    <h4 class="descript">{{item.description3}}</h4>
+                    <div fxFlex class="dotted-line"></div>
+                    <h4 class="item-pricing">{{item.label3}}</h4>
+                </div>
+                <div fxLayout="row" fxLayoutAlign='center center' *ngIf="item?.status!='addon'">
+                    <h4 class="descript">{{item.description4}}</h4>
+                    <div fxFlex class="dotted-line"></div>
+                    <h4 class="item-pricing">{{item.label4}}</h4>
+                </div>
+            </div>
+
+            <div fxLayoutAlign="center center">
+                <div *ngIf="item.planActivation == 'active'">
+                    <button class="form-button" style=" background-color: #0064d2;color: #ffffff;">{{item.planChange}}</button>
+                </div>
+
+                    <div *ngIf="item.planActivation == 'inActive'">
+                        <button class="form-button" [ngClass]="{'add-on-btn':item?.status=='addon'}" >{{item.planChange}}</button>
+                    </div>
+
+            </div>
+          </div>
+
+</drag-scroll>
+
+

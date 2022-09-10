@@ -1,0 +1,104 @@
+.header {
+    height: 70px;
+    background-color: white;
+    width: 100%;
+}
+
+.nav-title {
+    font-size: 19px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: normal;
+    text-align: left;
+    color: #0064d2;
+    margin-top: 12px;
+    white-space: nowrap;
+}
+
+.logo-div {
+    margin-left: 20px;
+}
+
+.nav-avatar {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.user-data {
+    height: 50px;
+    margin-right: 30px;
+    margin-top: 5px;
+    .user-name {
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.05;
+        letter-spacing: normal;
+        text-align: left;
+        color: #3c3c3c;
+        margin-top: 5px;
+        white-space: nowrap;
+    }
+    .user-plan {
+        font-size: 13px;
+        font-weight: 500;
+        color: #0064d2;
+        white-space: nowrap;
+    }
+}
+
+.scrape-button {
+    border-radius: 30px;
+    box-shadow: 0 6px 30px 0 #c4c4c4;
+    background-color: #404040;
+    border: none;
+    width: 140px;
+    height: 35px;
+    padding-bottom: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: 0.6px;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.toggle-button {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    .line {
+        height: 2.5px;
+        width: 80%;
+        background-color: #0064d2;
+    }
+    &:hover {
+        background-color: #0064d2;
+        .line {
+            background-color: white !important;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .scrape-button {
+        width: 100px;
+    }
+    .logo-div {
+        margin-left: 10px;
+    }
+}

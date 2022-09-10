@@ -1,0 +1,277 @@
+<div class="main-div">
+  <div fxLayout='column'>
+      <h3 class="withdraw-text">Withdraw listing from ebay after 30-days</h3>
+      <label class="switch" style="cursor: pointer;">
+          <input type="checkbox" (click)='toggleButton()'>
+          <span class="slider round"></span>
+          <h4 style="position: absolute;top: 3px;left: 40px;color: white;" *ngIf="!toggleValue">OFF</h4>
+          <h4 style="position: absolute;top: 3px;left: 45px;color: white;" *ngIf="toggleValue">ON</h4>
+      </label>
+      <h3 class="withdraw-text" style="margin-top: 40px;">Exclude Keywords</h3>
+
+        <form class="keyword-box" >
+          <mat-chip-list #chipList >
+            <mat-chip class="mat-chip"
+              *ngFor="let keyword1 of keyword"
+              [selectable]="selectable"
+              [removable]="removable"
+              (removed)="remove(keyword1,'exclude')">
+              {{keyword1}}
+              <mat-icon matChipRemove *ngIf="removable">
+                <img src='/assets/icons/close-no-border.png' class="close">
+              </mat-icon>
+            </mat-chip>
+            <input style="border: none;outline: none;"
+              #fruitInput
+              [formControl]="keywordCtrl"
+              [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event,'exclude')"
+
+              >
+          </mat-chip-list>
+            <!-- <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+              {{fruit}}
+            </mat-option> -->
+      </form>
+
+
+      <h3 class="withdraw-text" style="margin-top: 40px;">Risky Sellers</h3>
+      <div fxLayout='column'>
+          <div fxLayout='row'  fxLayout.xs="column">
+              <h3 class="product-name">Mercari</h3>
+              <form class="input-box">
+                  <mat-chip-list #chipList >
+                    <mat-chip class="mat-chip"
+                      *ngFor="let keyword1 of mercari"
+                      [selectable]="selectable"
+                      [removable]="removable"
+                      (removed)="remove(keyword1,'mercari')">
+                      {{keyword1}}
+                      <mat-icon matChipRemove *ngIf="removable">
+                        <img src='/assets/icons/close-no-border.png' class="close">
+                      </mat-icon>
+                    </mat-chip>
+                    <input style="border: none;outline: none;font-size: 18px;"
+                      #fruitInput
+                      [formControl]="keywordCtrl"
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="add($event,'mercari')"
+                      placeholder="Enter user names here"
+                      >
+                  </mat-chip-list>
+                    <!-- <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                      {{fruit}}
+                    </mat-option> -->
+              </form>
+          </div>
+          <div fxLayout='row'  fxLayout.xs="column">
+              <h3 class="product-name">Rakuten Japan</h3>
+              <form class="input-box">
+                  <mat-chip-list #chipList >
+                    <mat-chip class="mat-chip"
+                      *ngFor="let keyword1 of rakutenJapan"
+                      [selectable]="selectable"
+                      [removable]="removable"
+                      (removed)="remove(keyword1,'rakutenJapan')">
+                      {{keyword1}}
+                      <mat-icon matChipRemove *ngIf="removable">
+                        <img src='/assets/icons/close-no-border.png' class="close">
+                      </mat-icon>
+                    </mat-chip>
+                    <input style="border: none;outline: none;font-size: 18px;"
+                      #fruitInput
+                      [formControl]="keywordCtrl"
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="add($event,'rakutenJapan')"
+                      placeholder="Enter user names here"
+                      >
+                  </mat-chip-list>
+                    <!-- <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                      {{fruit}}
+                    </mat-option> -->
+              </form>
+          </div>
+          <div fxLayout='row' fxLayout.xs="column">
+              <h3 class="product-name">Amazon Japan</h3>
+              <form class="input-box">
+                  <mat-chip-list #chipList >
+                    <mat-chip class="mat-chip"
+                      *ngFor="let keyword1 of amazonJapan"
+                      [selectable]="selectable"
+                      [removable]="removable"
+                      (removed)="remove(keyword1,'amazonJapan')">
+                      {{keyword1}}
+                      <mat-icon matChipRemove *ngIf="removable">
+                        <img src='/assets/icons/close-no-border.png' class="close">
+                      </mat-icon>
+                    </mat-chip>
+                    <input style="border: none;outline: none;font-size: 18px;"
+                      #fruitInput
+                      [formControl]="keywordCtrl"
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="add($event,'amazonJapan')"
+                      placeholder="Enter user names here"
+                      >
+                  </mat-chip-list>
+                    <!-- <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                      {{fruit}}
+                    </mat-option> -->
+              </form>
+          </div>
+          <div fxLayout='row' fxLayout.xs="column">
+              <h3 class="product-name">Yahoo Auction</h3>
+              <form class="input-box">
+                  <mat-chip-list #chipList >
+                    <mat-chip class="mat-chip"
+                      *ngFor="let keyword1 of yahooAuction"
+                      [selectable]="selectable"
+                      [removable]="removable"
+                      (removed)="remove(keyword1,'yahooAuction')">
+                      {{keyword1}}
+                      <mat-icon matChipRemove *ngIf="removable">
+                        <img src='/assets/icons/close-no-border.png' class="close">
+                      </mat-icon>
+                    </mat-chip>
+                    <input style="border: none;outline: none;font-size: 18px;"
+                      #fruitInput
+                      [formControl]="keywordCtrl"
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="add($event,'yahooAuction')"
+                      placeholder="Enter user names here"
+                      >
+                  </mat-chip-list>
+                    <!-- <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                      {{fruit}}
+                    </mat-option> -->
+              </form>
+          </div>
+          <div fxLayout='row' fxLayout.xs="column">
+              <h3 class="product-name">Rakuten</h3>
+              <form class="input-box">
+                  <mat-chip-list #chipList >
+                    <mat-chip class="mat-chip"
+                      *ngFor="let keyword1 of rakuten"
+                      [selectable]="selectable"
+                      [removable]="removable"
+                      (removed)="remove(keyword1,'rakuten')">
+                      {{keyword1}}
+                      <mat-icon matChipRemove *ngIf="removable">
+                        <img src='/assets/icons/close-no-border.png' class="close">
+                      </mat-icon>
+                    </mat-chip>
+                    <input style="border: none;outline: none;font-size: 18px;"
+                      #fruitInput
+                      [formControl]="keywordCtrl"
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="add($event,'rakuten')"
+                      placeholder="Enter user names here"
+                      >
+                  </mat-chip-list>
+                    <!-- <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                      {{fruit}}
+                    </mat-option> -->
+              </form>
+          </div>
+          <div fxLayout='row' fxLayout.xs="column">
+              <h3 class="product-name">Paypal Furima</h3>
+              <form class="input-box">
+                  <mat-chip-list #chipList >
+                    <mat-chip class="mat-chip"
+                      *ngFor="let keyword1 of paypal"
+                      [selectable]="selectable"
+                      [removable]="removable"
+                      (removed)="remove(keyword1,'paypal')">
+                      {{keyword1}}
+                      <mat-icon matChipRemove *ngIf="removable">
+                        <img src='/assets/icons/close-no-border.png' class="close">
+                      </mat-icon>
+                    </mat-chip>
+                    <input style="border: none;outline: none;font-size: 18px;"
+                      #fruitInput
+                      [formControl]="keywordCtrl"
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="add($event,'paypal')"
+                      placeholder="Enter user names here"
+                      >
+                  </mat-chip-list>
+                    <!-- <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                      {{fruit}}
+                    </mat-option> -->
+              </form>
+          </div>
+          <div fxLayout='row' fxLayout.xs="column">
+            <h3 class="product-name">Netmall</h3>
+            <form class="input-box">
+                <mat-chip-list #chipList >
+                  <mat-chip class="mat-chip"
+                    *ngFor="let keyword1 of netmall"
+                    [selectable]="selectable"
+                    [removable]="removable"
+                    (removed)="remove(keyword1,'netmall')">
+                    {{keyword1}}
+                    <mat-icon matChipRemove *ngIf="removable">
+                      <img src='/assets/icons/close-no-border.png' class="close">
+                    </mat-icon>
+                  </mat-chip>
+                  <input style="border: none;outline: none;font-size: 18px;"
+                    #fruitInput
+                    [formControl]="keywordCtrl"
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add($event,'netmall')"
+                    placeholder="Enter user names here"
+                    >
+                </mat-chip-list>
+                  <!-- <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                    {{fruit}}
+                  </mat-option> -->
+            </form>
+        </div>
+        <div fxLayout='row' fxLayout.xs="column">
+          <h3 class="product-name">Digimall</h3>
+          <form class="input-box">
+              <mat-chip-list #chipList >
+                <mat-chip class="mat-chip"
+                  *ngFor="let keyword1 of digimall"
+                  [selectable]="selectable"
+                  [removable]="removable"
+                  (removed)="remove(keyword1,'digimall')">
+                  {{keyword1}}
+                  <mat-icon matChipRemove *ngIf="removable">
+                    <img src='/assets/icons/close-no-border.png' class="close">
+                  </mat-icon>
+                </mat-chip>
+                <input style="border: none;outline: none;font-size: 18px;"
+                  #fruitInput
+                  [formControl]="keywordCtrl"
+                  [matChipInputFor]="chipList"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  [matChipInputAddOnBlur]="addOnBlur"
+                  (matChipInputTokenEnd)="add($event,'digimall')"
+                  placeholder="Enter user names here"
+                  >
+              </mat-chip-list>
+                <!-- <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                  {{fruit}}
+                </mat-option> -->
+          </form>
+      </div>
+      </div>
+  </div>
+  <div fxLayoutAlign='end start' fxLayoutAlign.xs='center start'><button class="save-button">Save Changes</button></div>
+</div>

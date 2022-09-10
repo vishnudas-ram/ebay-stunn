@@ -1,0 +1,43 @@
+<div class='main-div' fxLayout="column" fxLayoutGap='30px'>
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap='10px' fxLayoutGap.xs='10px' style="margin-left: 10px;">
+        <div fxFlex='65' fxLayout="row wrap" fxLayoutGap='8px' style="padding-left: 10px;">
+            <button class="button-class" [ngClass]="{'button-class-active':buttonActive == 'active-all'}" (click)='allFunction()'>All</button>
+            <button class="button-class" [ngClass]="{'button-class-active':buttonActive == 'active-dashboard'}" (click)='dashboardFunction()'>Dashboard</button>
+            <button class="button-class">Scraping</button>
+            <button class="button-class">Product Upload</button>
+            <button class="button-class">To Selling</button>
+        </div>
+        <div fxFlex>
+            <div style="position: relative;">            
+              <input type="text" placeholder="Search" class="form-input">
+              <img src="/assets/icons/search-icon.png" alt="img" class="search-icon">
+            </div>
+        </div>
+    </div>
+    <div fxLayout='row wrap' fxLayout.xs='column' *ngIf="buttonValue =='all'">
+        <div fxFlex='24' fxFlex.md='33' fxFlex.sm='49' fxFlex.xs *ngFor="let item of List" style="padding: 10px;">
+         <div fxLayout='column' fxLayoutGap='5px' class="video-div">
+            <video width="100%" height="100%" controls style="border-radius: 10px;">
+                <source [src]="item.video" type="video/mp4">
+                <source [src]="item.video" type="video/ogg">
+            </video>
+            <h4 class="date-class">{{item.date}}</h4>
+            <h3 class="video-name">{{item.videoName}}</h3>
+            <h4 class="video-description">{{item.videoDescription}}</h4>
+         </div>
+        </div>
+    </div>
+    <div fxLayout='row wrap' fxLayout.xs='column' *ngIf="buttonValue == 'dashboard'">
+        <div fxFlex='24' fxFlex.md='33' fxFlex.sm='49' fxFlex.xs *ngFor="let item of dashBoard" style="padding: 10px;">
+            <div fxLayout='column' fxLayoutGap='5px' class="video-div">
+               <video width="100%" height="100%" controls>
+                   <source [src]="item.video" type="video/mp4">
+                   <source [src]="item.video" type="video/ogg">
+               </video>
+               <h4 class="date-class">{{item.date}}</h4>
+               <h3 class="video-name">{{item.videoName}}</h3>
+               <h4 class="video-description">{{item.videoDescription}}</h4>
+            </div>
+           </div>
+    </div>
+</div>

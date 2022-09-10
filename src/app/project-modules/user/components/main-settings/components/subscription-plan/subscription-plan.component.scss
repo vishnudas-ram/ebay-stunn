@@ -1,0 +1,165 @@
+.card-logo {
+    width: 71px;
+    height: 76px;
+}
+.scroll{
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  height: 640px;
+  overflow-x: hidden;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.scroll::-webkit-scrollbar {
+  display: none;
+}
+.card-plan {
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-align: center;
+  color: #0064d2;
+}
+
+.price {
+    font-size: 25px !important;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.88;
+    letter-spacing: normal;
+    text-align: center;
+    color: #3c3c3c;
+}
+.price-sub {
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.88;
+  letter-spacing: normal;
+  text-align: center;
+  color: #3c3c3c;
+}
+.descript {
+  margin: 6px;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-align: left;
+  color: #3c3c3c;
+}
+
+.item-pricing {
+    font-size: 21px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: right;
+    color: #3c3c3c;
+    margin-top: 14px;
+    white-space: nowrap;
+}
+.dotted-line {
+    height: 2px;
+    border: none;
+    margin: 0px 10px;
+    border-top: dashed 2px #e3e3e3
+}
+.card {
+    height: fit-content;
+    border-radius: 20px;
+    box-shadow: 0 6px 50px 0 rgba(141, 141, 141, 0.16);
+    background-color: #ffffff;
+    // cursor: pointer;
+    margin: 20px;
+    padding: 10px;
+    box-shadow: 0 6px 50px 0 rgba(141, 141, 141, 0.16);
+    background-color: #ffffff;
+
+}
+.form-button{
+    cursor: pointer;
+    width: 450px;
+    height: 60px;
+    margin: 30px 20px;
+    padding-bottom: 8px;
+    border: solid 1px #0064d3;
+    background-color: #ffffff;
+    border-radius: 50px;
+    box-shadow: 0 6px 50px 0 rgba(141, 141, 141, 0.16);
+    color: #0064d2;
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: normal;
+}
+
+
+@media (max-width: 1560px) {
+  .descript {
+      font-size: 17px;
+  }
+  .item-pricing {
+      font-size: 17px;
+  }
+  .price {
+      font-size: 21px;
+  }
+  .form-button{
+    width: 400px;
+  }
+}
+
+@media (max-width: 450px) {
+  .descript {
+      font-size: 15px;
+  }
+  .item-pricing {
+      font-size: 15px;
+  }
+
+}
+@media (max-width: 600px) {
+
+  .form-button{
+    width: 350px;
+  }
+}
+@media (min-width: 2500px) {
+  .card-plan {
+      font-size: 20px;
+  }
+  .descript {
+      font-size: 20px;
+  }
+  .item-pricing {
+      font-size: 25px;
+  }
+
+}
+.add-onlogo{
+  margin-top: 35px !important;
+  width: 70px;
+  height: 35px;
+  margin-bottom: 22px;
+}
+.add-on-label{
+  margin-top:10px
+}
+.add-on-btn{
+  margin-top:80px
+}

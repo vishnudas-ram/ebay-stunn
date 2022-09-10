@@ -1,0 +1,14 @@
+<div class="full-height">
+    <div [ngClass]="{'open-sidebar': isSidebarOpened,'close-sidebar': !isSidebarOpened}" class="sidebarMenu">
+        <app-sidebar [isSidebarOpened]="isSidebarOpened" (sideOpenEvent)="sidebarEvent($event)">
+        </app-sidebar>
+    </div>
+    <div [ngClass]="{'open-menu': isSidebarOpened,'close-menu': !isSidebarOpened}" class="main full-height">
+        <app-header class="nav-header" [isSidebarOpened]="isSidebarOpened" (sideOpenEvent)="sidebarEvent($event)">
+        </app-header>
+        <div class="router-view-div full-height">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div style="background-color: white; border-radius: 20px;padding: 10px 5px;">
+  <div fxLayoyt="column "  *ngFor="let news of latestNews ">
+
+
+            <div fxLayout="row wrap" >
+                 <div class="date" style="padding: 20px 20px 20px 30px;">{{news.date}}</div>
+                 <div class="new">new</div>
+            </div>
+
+
+                   <div fxLayout="row" style="padding: 20px;" fxLayoutGap="20px" fxLayout.xs="column" fxLayout.sm="column">
+                      <img [src]="news.image" alt="" width="241" height="168px">
+                      <div fxLayout="column" fxFlex fxLayoutGap="10px" >
+                        <div  fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="space-between start">
+                        <h4 class="latestNews">
+                         Latest News
+                        </h4>
+
+                            <h4  class="readMore">Read More</h4>
+
+                       </div>
+
+                       <textarea class="description" readonly>
+                        {{news.description}}
+                       </textarea>
+                  </div>
+                </div>
+
+
+
+  </div>
+  <div style="margin-top: 50px; padding: 0px 10px 20px 10px;" fxLayoutAlign="center" >
+<div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="center">
+<button class="pagebtn" (click)="pagination(1)" *ngIf="page > 3">1</button>
+<button class="pagedot" *ngIf="page > 4">. . .</button>
+<button class="pagebtn"  (click)="pagination(page-2)" *ngIf="page-2 > 0">{{page-2}}</button>
+<button class="pagebtn"  (click)="pagination(page-1)" *ngIf="page-1 > 0">{{page-1}}</button>
+<button class="selected-pagebtn">{{page}}</button>
+<button class="pagebtn" (click)="pagination(page+1)" *ngIf="page+1 < totalPages">{{page+1}}</button>
+<button class="pagebtn" (click)="pagination(page+2)" *ngIf="page+2 < totalPages">{{page+2}}</button>
+<button class="pagedot" *ngIf="page!=totalPages && totalPages-page>3">. . .</button>
+<button class="pagebtn" *ngIf="page!=totalPages"(click)="pagination(totalPages)">{{totalPages}}</button>
+</div>
+  </div>
+</div>

@@ -1,0 +1,170 @@
+<div class="main-div"  id='main' >
+  <div fxLayout='row' fxLayoutAlign="center start" style="position: relative;" id='title'>
+    <h3 class="heading">Upload to ebay</h3>
+    <img src="/assets/icons/close-no-border.png" alt="" height="35px" width="35px" style="position: absolute;right: 0px; cursor: pointer;" (click)="closeDialog()">
+  </div>
+<div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="start center">
+
+  <div  id="content" class="padding">
+    <form [formGroup]="formGroup" >
+
+      <div fxLayout="column" fxLayoutGap="10px" style="margin-top: 20px;">
+        <div fxLayout="column" fxLayoutGap="20px"  fxLayoutAlign="start center">
+          <!-- 1st -->
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="10px" style="width: 75%;">
+          <div fxFlex>
+            <h4 class="form-label">Shipping Price</h4>
+            <input type="text" class="input-box" placeholder="Shipping Price">
+          </div>
+         <div fxFlex>
+          <div fxLayout="row" fxLayoutAlign="space-between start">
+              <h4 class="form-label">Target Rate Of Return</h4>
+              <img src="/assets/icons/help.svg" alt="" height="18px" width="18px">
+          </div>
+          <input type="text" class="input-box" placeholder="rate of return%">
+         </div>
+        </div>
+
+          <!-- 2nd -->
+        <div style="width: 75%;">
+
+        <div fxFlex>
+            <h4 class="form-label">Category</h4>
+          <input type="text" class="input-box" placeholder="Category code">
+      </div>
+        </div>
+        <!-- 3rd -->
+        <div style="width: 75%" #menuBtn>
+          <h4 class="form-label">Business Policies</h4>
+          <div >
+            <button class="form-select-dropdown drop-btn text-style" mat-icon-button [matMenuTriggerFor]="menu1" aria-label="Example icon-button with a menu">
+
+              <div fxLayoutAlign="space-between">
+                {{paymentPolicy}}
+                <mat-icon>keyboard_arrow_down</mat-icon>
+              </div>
+            </button>
+            <mat-menu #menu1="matMenu" class="form-select-menu-list" >
+              <button mat-menu-item *ngIf="!paymentPolicyList || !paymentPolicyList?.length" style="width: 100%;" [style.width.px]="menuBtn.offsetWidth">
+                No payment policies available
+               </button>
+                <button mat-menu-item (click)="policy(type,'payment')" *ngFor="let type of paymentPolicyList" style="width: 100%;" [style.width.px]="menuBtn.offsetWidth">
+                  {{type}}
+                 </button>
+
+            </mat-menu>
+          </div>
+
+          <div >
+            <button  class="form-select-dropdown drop-btn text-style" mat-icon-button [matMenuTriggerFor]="menu2" aria-label="Example icon-button with a menu">
+
+              <div fxLayoutAlign="space-between">
+                {{shippingPolicy}}
+                <mat-icon>keyboard_arrow_down</mat-icon>
+              </div>
+            </button>
+            <mat-menu #menu2="matMenu" class="form-select-menu-list" >
+              <button mat-menu-item *ngIf="!shippingPolicyList || !shippingPolicyList.length" style="width: 100%;" [style.width.px]="menuBtn.offsetWidth">
+                No shipping policies available
+               </button>
+                <button mat-menu-item (click)="policy(type,'shipping')" *ngFor="let type of shippingPolicyList" [style.width.px]="menuBtn.offsetWidth">
+               {{type}}
+              </button>
+            </mat-menu>
+          </div>
+
+          <div >
+            <button  class="form-select-dropdown drop-btn text-style" mat-icon-button [matMenuTriggerFor]="menu3" aria-label="Example icon-button with a menu">
+
+              <div fxLayoutAlign="space-between">
+                {{returnPolicy}}
+                <mat-icon>keyboard_arrow_down</mat-icon>
+              </div>
+            </button>
+            <mat-menu #menu3="matMenu" class="form-select-menu-list ">
+              <button mat-menu-item *ngIf="!returnPolicyList || !returnPolicyList?.length" style="width: 100%;" [style.width.px]="menuBtn.offsetWidth">
+                No return policies available
+               </button>
+                <button mat-menu-item (click)="policy(type,'return')" *ngFor="let type of returnPolicyList" [style.width.px]="menuBtn.offsetWidth">
+               {{type}}
+              </button>
+            </mat-menu>
+          </div>
+          </div>
+        </div>
+<!-- next section -->
+        <div fxLayoutGap="20px" fxLayout="column" style="padding-top: 10px;">
+          <mat-radio-group aria-label="Select an option" fxLayout="column" fxLayoutGap="10px" >
+           <div fxLayout="row" fxLayoutGap="10px">
+            <h4 class="form-label">Use scrapped item description</h4>
+            <mat-radio-button color="primary" value="default" [checked]='selectedDescription==false' (click)="changeDescription(false)"></mat-radio-button>
+           </div>
+           <div fxLayout="row" fxLayoutGap="10px">
+            <h4 class="form-label">Write own item description applied to all items</h4>
+            <mat-radio-button color="primary" value="new"  [checked]='selectedDescription==true' (click)="changeDescription(true)"></mat-radio-button>
+           </div>
+          </mat-radio-group>
+
+            <div *ngIf="selectedDescription" class="content-div"  fxLayout="column" fxLayoutGap="10px">
+              <div class="header" >
+            <h4 class="header-title">Item Description</h4>
+              </div>
+
+              <textarea  class="textarea"  placeholder="Description here"></textarea>
+            </div>
+
+        </div>
+
+
+        <div fxLayout="row wrap" fxLayoutGap="20px"  fxLayoutAlign="center" style="padding-top: 20px;">
+          <h4 class="form-label" style="white-space: nowrap;">Choose template :</h4>
+          <mat-radio-group aria-label="Select an option" fxLayout="row wrap" fxLayoutGap="15px" fxLayoutGap.xs="5px" fxLayoutAlign="center">
+            <mat-radio-button color="primary" value="default" [checked]='selectedTemplate=="default"' (click)="changeTemplate('default')">Default</mat-radio-button>
+            <mat-radio-button color="primary" value="myTemplate" [checked]='selectedTemplate=="myTemplate"' (click)="changeTemplate('myTemplate')">My Template</mat-radio-button>
+            <mat-radio-button color="primary" value="myTemplate" [checked]='selectedTemplate=="none"' (click)="changeTemplate('none')">None</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div  fxLayoutAlign="center">
+          <div  fxLayout="column" style="width: 100%;"  *ngIf="selectedTemplate=='myTemplate'|| selectedTemplate=='default'" >
+
+            <div class="content-div"  fxLayout="column" fxLayoutGap="10px">
+              <div class="header" >
+            <h4 class="header-title">Payment Method</h4>
+              </div>
+              <textarea *ngIf="selectedTemplate=='default'" class="textarea"  placeholder="Default Payment Method description here" readonly></textarea>
+              <textarea *ngIf="selectedTemplate=='myTemplate'" class="textarea" formControlName='payment_method' placeholder="Please enter the Payment Method description here"></textarea>
+            </div>
+            <div class="content-div" fxLayout="column" fxLayoutGap="10px">
+              <div class="header">
+                <h4 class="header-title">Shipping Methods</h4>
+              </div>
+              <textarea *ngIf="selectedTemplate=='default'" class="textarea"  placeholder="Default  Shipping Methods description here" readonly></textarea>
+              <textarea *ngIf="selectedTemplate=='myTemplate'" class="textarea" formControlName='shipping_method' placeholder="Please enter the Shipping Methods description here"></textarea>
+            </div>
+            <div class="content-div" fxFlex="50" fxFlex.lt-md fxLayout="column" fxLayoutGap="10px">
+              <div class="header">
+                <h4 class="header-title">Transaction Matters</h4>
+              </div>
+              <textarea *ngIf="selectedTemplate=='default'" class="textarea"  placeholder="Default  Transaction Matters description here" readonly></textarea>
+              <textarea *ngIf="selectedTemplate=='myTemplate'" class="textarea" formControlName='transaction_matter' placeholder="Please enter the Transaction Matters description here"></textarea>
+            </div>
+            <div class="content-div" fxLayout="column" fxLayoutGap="10px">
+              <div class="header">
+                <h4 class="header-title">To Overseas buyers notes : </h4>
+              </div>
+              <textarea *ngIf="selectedTemplate=='default'" class="textarea"  placeholder="Default  To Overseas buyers notes :  description here" readonly></textarea>
+              <textarea *ngIf="selectedTemplate=='myTemplate'" class="textarea" formControlName='overseas_buyers_note' placeholder="Please enter the To Overseas buyers notes :  description here"></textarea>
+            </div>
+            </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+<div fxLayoutAlign="center center" style="padding-top: 40px;">
+  <button class="save-button" (click)="formGroup.valid?UploadProduct(formGroup?.value):toastr.error('Enter required fields')">Upload to ebay</button>
+</div>
+
+</div>
+

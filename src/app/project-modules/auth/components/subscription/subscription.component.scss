@@ -1,0 +1,251 @@
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: normal;
+    color: #0064d2;
+    margin: 6.2px 0 11.7px 8.8px;
+}
+
+.card-logo {
+    width: 71px;
+    height: 76px;
+}
+
+.logo-div {
+    padding-top: 10px;
+    padding-left: 30px;
+}
+
+.main-title {
+    font-size: 40px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: normal;
+    text-align: center;
+    color: #3c3c3c;
+}
+
+.sub-title-div {
+    width: 50%;
+}
+
+.sub-title {
+    font-size: 20px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: normal;
+    text-align: center;
+    color: #a5a5a5;
+}
+
+.card {
+    border-radius: 20px;
+    box-shadow: 0 6px 50px 0 rgba(141, 141, 141, 0.16);
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.top {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+    height: 15px;
+    background-color: #ffffff;
+}
+
+.bottom {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 100%;
+    height: 15px;
+    background-color: #ffffff;
+}
+
+.select {
+    background-color: #0064d2 !important;
+}
+
+.card-plan {
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #0064d2;
+    margin-top: 10px;
+}
+
+.price {
+    font-size: 25px !important;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.88;
+    letter-spacing: normal;
+    text-align: center;
+    color: #3c3c3c;
+}
+
+.price-sub {
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.88;
+    letter-spacing: normal;
+    text-align: center;
+    color: #3c3c3c;
+}
+
+.discription {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #3c3c3c;
+    margin-top: 13px;
+    white-space: nowrap;
+}
+
+.item-pricing {
+    font-size: 21px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: right;
+    color: #3c3c3c;
+    margin-top: 14px;
+    white-space: nowrap;
+}
+
+.dotted-line {
+    height: 2px;
+    border: none;
+    margin: 0px 10px;
+    border-top: dashed 2px #e3e3e3
+}
+
+.privacy {
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #3c3c3c;
+    margin-left: 20px;
+}
+
+.form-button {
+    width: fit-content;
+    margin-top: 30px;
+    height: 60px;
+    max-height: fit-content;
+    padding: 10px 50px;
+    border-radius: 39px;
+    background-color: #ededed;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: 0.6px;
+    text-align: center;
+    color: #b7b7b7;
+    margin-bottom: 100px;
+    white-space: nowrap;
+    outline: none;
+    border: none;
+}
+
+.form-button-active {
+    width: fit-content;
+    margin-top: 30px;
+    height: 60px;
+    max-height: fit-content;
+    padding: 10px 50px;
+    border-radius: 39px;
+    background-color: #0064d2;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.45;
+    letter-spacing: 0.6px;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 100px;
+    white-space: nowrap;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 1560px) {
+    .discription {
+        font-size: 14px;
+    }
+    .item-pricing {
+        font-size: 17px;
+    }
+    .price {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 750px) {
+    .sub-title-div {
+        width: 90%;
+    }
+}
+
+@media (max-width: 450px) {
+    .discription {
+        font-size: 12px;
+    }
+    .item-pricing {
+        font-size: 15px;
+    }
+    .main-title {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 2500px) {
+    .card-plan {
+        font-size: 20px;
+    }
+    .discription {
+        font-size: 20px;
+    }
+    .privacy {
+        font-size: 20px;
+    }
+    .item-pricing {
+        font-size: 25px;
+    }
+
+    .form-button {
+        padding: 10px 100px;
+        font-size: 24px;
+    }
+    .form-button-action {
+        padding: 10px 100px;
+        font-size: 24px;
+    }
+}

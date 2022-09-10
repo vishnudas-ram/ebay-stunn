@@ -1,0 +1,23 @@
+<div fxLayout="row" class="header" fxLayoutAlign="space-between center" fxLayoutGap="5px">
+    <div fxLayout="row" class="logo-div" fxLayoutAlign="start center" fxLayoutGap="10px">
+        <div fxLayout="row" fxLayoutGap="14px" fxLayoutAlign="start center">
+            <img src="/assets/icons/logo-blue.png" alt="" height="35px" width="30px">
+            <h4 class="nav-title" fxHide.xs>EC-Lister for ebay</h4>
+        </div>
+        <button class="toggle-button" fxLayout="column" fxLayoutGap="4px" fxLayoutAlign="center center" (click)="onToggle()">
+         <div class="line"></div>
+         <div class="line"></div>
+         <div class="line"></div>
+  </button>
+    </div>
+    <div fxLayout="row" class="user-detail" fxLayoutAlign="start center" fxLayoutGap="50px" fxLayoutGap.sm="15px" fxLayoutGap.xs="15px">
+        <button class="scrape-button" [routerLink]="['scraping-screen']" routerLinkActive="router-link-active" (click)='scrapeButtonObjects()'>scrape</button>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="14px">
+            <img [src]="profileData?.avatar || '/assets/icons/avatar.jpg'" alt="" class="nav-avatar" [routerLink]="['profile-settings']" routerLinkActive="router-link-active">
+            <div fxLayout="column" class="user-data" fxLayoutGap="2px" fxLayoutAlign="center start">
+                <p class="user-name">{{profileData?.first_name}}</p>
+                <p class="user-plan">Anchor plan</p>
+            </div>
+        </div>
+    </div>
+</div>

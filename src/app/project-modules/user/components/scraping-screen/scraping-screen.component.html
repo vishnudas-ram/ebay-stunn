@@ -1,0 +1,113 @@
+<div style="background-color: white; border-radius: 10px;">
+  <div fxLayout="column" fxLayoutGap="20px">
+    <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px" style="border-bottom: solid 1px #bfc4ca;">
+      <div fxFlex fxLayoutGap="10px" fxLayout="row wrap" style="padding: 5px 5px 15px 10px;" >
+        <div fxLayoutAlign="start center" *ngFor="let list of FleaMarketLIst" style="padding-top: 10px;">
+          <button
+            class="logo-button"
+            [ngClass]="{'logo-button-active':selectedMarket?.id==list?.id}"
+             (click)="openFleaMarket(list)">
+              <img [src]="list?.icon" alt="" width="100%" height="100%">
+          </button>
+        </div>
+      </div>
+      <div fxFlex fxLayout="row" fxLayout.md="column" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-between center" fxLayoutGap="10px" style="padding:0px 5px ">
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" style="padding-top: 10px;" fxLayoutAlign.xs="start center" fxLayoutGap="10px">
+           <h5 class="header-text" >Product data extraction frequency</h5>
+           <h4 class="header-number" >202/500</h4>
+          </div>
+        <button class="extract-button" (click)="extractProduct()" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" *ngIf="selectedproducts?.length">
+            <h5 class="extract-button-text">Extract products</h5>
+            <img src="/assets/icons/arrow-left.png" alt="img" class="left-arrow">
+        </button>
+        <button class="extract-button-disable" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px" *ngIf="!selectedproducts?.length">
+          <h5 class="extract-button-text">Extract products</h5>
+          <img src="/assets/icons/arrow-left.png" alt="img" class="left-arrow">
+      </button>
+      </div>
+    </div>
+  <form [formGroup]="formGroup">
+    <div fxLayout='row' fxLayoutAlign.lt-md="start start" fxLayout.sm='column' fxLayout.xs='column' fxLayoutGap.sm="20px"  fxLayoutGap.xs="20px"  fxLayoutGap="10px" style="padding: 5px 25px;">
+        <div fxFlex="70"fxLayout='row' fxLayoutGap="10px" fxLayout.xs='column' fxLayoutGap.xs="10px" >
+          <div fxLayout='column' style="width: 100%;">
+            <h4 class="url-text">URL</h4>
+            <div fxLayout='row'>
+               <input type="text" formControlName="url" class="number-product-input" placeholder="Enter URL" >
+
+            </div>
+        </div>
+          <div fxLayout='column' >
+                <h4 class="url-text" style="white-space: nowrap;">Number of product draws</h4>
+                <div fxLayout="row" fxLayoutGap="10px">
+                  <input type="number" placeholder="" formControlName="product_count" class="number-product-input" style="width: 50%;">
+                  <button *ngIf="formGroup.valid && formGroup.value.matching && formGroup.value.countValidate" (click)="scrapeProduct(formGroup.value)" class="product-display-button" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                    <img src="/assets/icons/search-icon-active.png" alt="" height="20px" width="20px">
+                    <h4 class="product-display-text">Product<br>Display</h4>
+                </button>
+                <button *ngIf="!formGroup.valid || !formGroup.value.matching || !formGroup.value.countValidate" class="product-display-button-disable" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                 <img src="/assets/icons/search-icon.png" alt="" height="20px" width="20px">
+                 <h4 class="product-display-text" style="color: #b7b7b7;">Product<br>Display</h4>
+             </button>
+
+                </div>
+            </div>
+            <!-- <div>
+              <button *ngIf="formGroup.valid && formGroup.value.matching && formGroup.value.countValidate" (click)="scrapeProduct(formGroup.value)" class="product-display-button" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <img src="/assets/icons/search-icon-active.png" alt="" height="20px" width="20px">
+                <h4 class="product-display-text">Product<br>Display</h4>
+            </button>
+            <button *ngIf="!formGroup.valid || !formGroup.value.matching || !formGroup.value.countValidate" class="product-display-button-disable" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+             <img src="/assets/icons/search-icon.png" alt="" height="20px" width="20px">
+             <h4 class="product-display-text" style="color: #b7b7b7;">Product<br>Display</h4>
+         </button>
+            </div> -->
+        </div>
+        <div fxFlex fxLayoutAlign="end end" >
+            <div class="current-select-div" fxLayout='row' fxLayoutGap="20px" >
+              <div style="padding: 10px 15px 5px 15px;">
+                <h4 class="current-select-text"  >Current selections</h4>
+              </div>
+
+                <div style="padding-top: 3px;">
+                  <h4 class="current-select-text" style="font-size: 30px;">{{selectedproducts?.length}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+  </form>
+    <div fxLayout='column' *ngIf="status== 'product'" fxLayoutGap="40px" style="padding: 25px;">
+      <img [src]='selectedMarket?.logo' alt="" height="40px" width="150px">
+      <div fxLayout='row wrap'   fxLayoutAlign="start start" fxLayoutAlign.xs="start center" fxLayoutAlign.sm="space-around center" fxLayout.xs="column" fxLayoutGap.xs="10px">
+         <div fxFlex='10' fxFlex.lg='14' fxFlex.md='20' fxFlex.sm='30' class="single-product-detail" *ngFor="let products of listProduct" fxLayout='column' fxLayoutGap="10px">
+             <div class="product-image-div" >
+                <img [src]="products?.photos" alt="" class="pro-img">
+                <input type="checkbox" class="image-checker" style="cursor: pointer;" [checked]="selectedproducts.includes(products)" (click)="selectProduct(products)">
+             </div>
+              <h4 class="product-name">{{products?.product_name}}</h4>
+              <h4 class="product-price">{{products?.price}}</h4>
+
+         </div>
+      </div>
+    </div>
+    <div *ngIf="status == 'loading'" style="height: 60vh !important;" fxLayoutAlign="center center">
+      <mat-spinner color="primary" class="spinner"  diameter="50"></mat-spinner>
+    </div>
+      <div *ngIf="status == 'initial'" style="padding:189px 50px 50px 50px;">
+
+      <!-- <div fxLayout="row" fxLayoutAlign="center" ></div> -->
+            <h4 class="text">Get URL from flea market site displayed above and enter it in the product display field.</h4>
+
+      <div fxLayout="row wrap"  fxLayoutAlign="center" >
+           <div *ngFor="let img of contentIcon" style="padding: 22px;">
+             <img [src]="img.image"   alt="" width="116px" height="116px">
+            <h5 class="iconName">{{img.name}}</h5>
+            <h4 class="iconAmount">{{img.amount}}</h4>
+           </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+

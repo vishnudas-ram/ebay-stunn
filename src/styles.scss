@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    margin: 0px;
+    height: 100%;
+    /* background-color: #ffffff; */
+    font-family: "Noto Sans JP", sans-serif !important;
+    font-style: normal;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Noto Sans JP", sans-serif !important;
+    font-size: normal;
+}
+
+.material-icons {
+    font-family: 'Material Icons' !important;
+}
+
+.fullHeight {
+    height: 100%;
+}
+
+.full-height {
+    height: 100% !important;
+    overflow: auto;
+}
+.mat-dialog-container {
+    border-radius: 20px !important;
+  }
+
+  ::ng-deep.mat-menu-panel {
+    max-width: none !important;
+}

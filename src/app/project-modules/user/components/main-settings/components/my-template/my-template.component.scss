@@ -1,0 +1,64 @@
+.main-div {
+  border-radius: 20px;
+  background-color: #ffffff;
+  width: 100%;
+  padding: 30px 30px;
+}
+.content-div{
+  padding: 10px;
+}
+.header{
+  box-sizing: border-box;
+  border-radius: 5px;
+  height: 44px;
+  background-color: #0064d2;
+  padding: 8px 10px 10px 10px;
+}
+.header-title{
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: 0.36px;
+  text-align: left;
+  color: #ffffff;
+}
+.textarea{
+  resize: none;
+  height: 200px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.4px;
+  text-align: left;
+  color: #b7b7b7;
+  border-radius: 5px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.textarea::-webkit-scrollbar {
+  display: none;
+}
+.update-btn{
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.6px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 30px;
+  background-color: #0064d2;
+  width: 250px;
+  height: 50px;
+  padding: 8px 10px 15px 10px;
+}

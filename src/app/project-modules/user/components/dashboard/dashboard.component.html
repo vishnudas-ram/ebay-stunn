@@ -1,0 +1,134 @@
+<div *ngIf="isLoading" style="height: 100%; " fxLayoutAlign="center center">
+  <mat-spinner color="primary" diameter="50">hhh</mat-spinner>
+</div>
+<div *ngIf="!isLoading" class="main-div">
+    <div class="graph-card">
+        <div class="graph-title-div" fxLayout="row " fxLayout.xs="column" fxLayoutAlign="space-between" fxLayoutGap='16px'>
+            <div fxFlex fxLayout="row wrap" fxLayoutAlign="space-between" fxLayoutGap='10px' style=" padding-bottom: 20px;">
+                <h5 class="graph-title-main common-style">ebay 出品商品数</h5>
+                <h5 class="graph-title-sub common-style" style="font-weight: 500;">Today’s inventory withdrawals <span class="graph-title-number common-style">20</span></h5>
+            </div>
+            <div fxFlex fxLayout="row wrap" fxLayoutAlign="space-between" fxLayoutGap='10px' style="padding-bottom: 20px;">
+                <h5 class="graph-title-sub common-style" style="font-weight: 500;">Number of scraping per month <span class="graph-title-number common-style">202/<span style="font-size: 20px;">500</span> </span>
+                </h5>
+                <div fxLayout="row" fxLayoutAlign="start start">
+                    <img src="/assets/icons/left-arrow.svg" alt="" height="30px" style="margin-top: 8px;">
+                    <h3 class="graph-title-main common-style">View last month</h3>
+                </div>
+
+            </div>
+        </div>
+        <div class="canvas-div">
+            <canvas style="width: 100%; min-width: 600px; height: 400px;" id="line-chart"></canvas>
+        </div>
+    </div>
+    <div *ngIf="!scrappedList || !scrappedList.length" class="no-scrape-data" fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center">
+<h4 class="no-data-label">Not started scraping yet!</h4>
+<button class="scrape-button" [routerLink]="['../scraping-screen']" routerLinkActive="router-link-active" >Start Scraping</button>
+    </div>
+    <div class="scaping-main-card" *ngIf="scrappedList && scrappedList.length">
+        <div style="padding: 0px 0px 10px 0px;" fxLayout="row wrap" fxLayout.xs="column">
+            <div style="padding: 0px 10px 10px 0px;" *ngFor="let scrape of scrappedList" fxFlex="33" fxFlex.lg="50" fxFlex.md="50" fxFlex.sm="50" fxFlex.xs>
+                <div class="card" fxLayout="column" fxLayoutAlign="space-between stretch">
+                    <!-- for title -->
+                    <div fxLayout="row wrap" fxLayoutAlign="space-between stretch" fxLayoutGap="7px">
+                        <div fxFlex fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="15px">
+                            <p class="date-style common-style" style="font-weight: 500;">{{scrape.created_on | date : 'dd MMM'}}</p>
+
+                        </div>
+
+                        <div fxFlex fxLayout="column" fxLayoutAlign="start end" fxLayoutGap="4px" fxLayoutAlign.sm="start center">
+                            <div fxFlex fxLayoutGap="10px" fxLayout="row">
+                                <img [src]='scrape?.platform?.logo' alt="" height="30px" width="100px">
+                                <img src="/assets/icons/help.svg" alt="" height="25px" width="25px"  [matMenuTriggerFor]="menu" style="padding-top: 5px; cursor: pointer;">
+                                <mat-menu #menu="matMenu" xPosition="before">
+                                    <div fxLayout="column" class="mat-menu-div">
+                                        <div fxLayout="column" fxLayoutGap="4px" class="mat-menu-div-first">
+                                            <h4 class="search-word">Search word</h4>
+                                            <h3 class="product-card">Pokemon card</h3>
+                                        </div>
+                                        <div fxLayout="column" style="margin-top: 6px;">
+                                            <div fxLayout="row"  fxLayoutAlign="space-between start" fxLayoutGap="15px">
+                                                <div fxFlex='33'><h3 class="Inventory-check-text" >Inventory check１</h3></div>
+                                                <div fxFlex='33'><h3 class="progress-text">Complete</h3></div>
+                                                <div fxFlex='33'><h3 class="time-text">08:15</h3></div>
+                                            </div>
+                                            <div fxLayout="row" fxFlex='33' fxLayoutAlign="space-between start" fxLayoutGap="15px">
+                                                <div fxFlex='33'><h3 class="Inventory-check-text" >Inventory check 2</h3></div>
+                                                <div fxFlex='33'><h3 class="progress-text">Complete</h3></div>
+                                                <div fxFlex='33'><h3 class="time-text">14:20</h3></div>
+                                            </div>
+                                            <div fxLayout="row" fxFlex='33' fxLayoutAlign="space-between start" fxLayoutGap="15px">
+                                                <div fxFlex='33'><h3 class="Inventory-check-text" >Inventory check 3</h3></div>
+                                                <div fxFlex='33'><h3 class="progress-text" style="color: #ef847b;">In progress</h3></div>
+                                                <div fxFlex='33'></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-menu>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="status-button common-button" [ngClass]="{'status-button-one': scrape?.status == 'Scrapping' , 'status-button-two':scrape?.status == 'Scrapping Completed','status-button-four':scrape?.status == 'Scrapping Failed'} " style="margin-top: 10px;">{{scrape.status}}</button>
+
+                    <div fxLayout="row" fxLayoutAlign="space-between stretch" fxLayoutGap="7px" fxLayout.sm="column" fxLayout.xs="column" style="margin-top: 20px;">
+                        <div fxFlex fxLayout="column" fxLayoutAlign="space-between start" fxLayoutGap="20px">
+                            <div fxLayout="column" fxLayoutAlign="start end" fxLayoutGap="5px" class="underline-div">
+                                <mat-progress-bar class="progressbar" [ngClass]="{'orange': scrape?.status == 'Scrapping' , 'blue':scrape?.status == 'Scrapping Completed', 'green':scrape?.status == 'Uploading to ebay', 'red':scrape?.status == 'Scrapping Failed'} " mode="determinate" [value]='scrape.status=="Scrapping Completed"?100:scrape.status=="Scrapping"?50:0'></mat-progress-bar>
+                                <!-- <h5 class="suffix common-style" style="font-weight: normal;">{{scrape.time}} minuts left</h5> -->
+                            </div>
+
+                            <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-between end" style="width: 100%;">
+                                <div fxFlex>
+                                    <p class="Total-Active-Products common-style" style="font-weight: 500;">Total Active <br> products</p>
+                                    <p class="item-number" style="text-align: left;">{{scrape?.count}} <span class="suffix common-style" style="font-weight: normal;">items</span></p>
+                                </div>
+                                <div fxFlex>
+                                    <p class="Total-Active-Products common-style" *ngIf="scrape.status =='Inventory check' " style="font-weight: 500;">Total Inventory <br>Check</p>
+                                    <p class="item-number" *ngIf="scrape.status =='Inventory check' " style="text-align: left;">1/3 <span class="suffix common-style" style="font-weight: normal;">today</span></p>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                        <div fxFlex fxLayout="column" fxLayoutAlign="space-between end" fxLayoutGap="15px" fxLayoutAlign.sm="space-between center" fxLayoutAlign.xs="space-between center" style=" padding-bottom: 16px;" *ngIf="scrape?.status=='Scrapping Completed' ">
+                            <button class="menu-button" fxLayout="row" fxLayoutAlign="center center" *ngIf="scrape?.status=='Scrapping Completed'" (click)="bulkUpload(scrape)">
+                              <img src="/assets/icons/button-icon-upload.png" alt=""  class="button-icon">
+                         <h4 class="btn-text-align">Upload to ebay</h4>
+                            </button>
+                            <button class="menu-button" fxLayout="row" fxLayoutAlign="center center" *ngIf="scrape?.status=='Scrapping Completed'">
+                              <img src="/assets/icons/button-icon-download.png" alt=""  class="button-icon" >
+                               <h4 class="btn-text-align">Download CSV</h4>
+                              </button>
+                            <button class="menu-button" fxLayout="row" fxLayoutAlign="center center" *ngIf="scrape?.status=='Scrapping Completed'" [routerLink]="['../edit-product',scrape?.id]" routerLinkActive="router-link-active">
+                              <img src="/assets/icons/button-icon-edit.png" alt=""  class="button-icon">
+                            <h4 class="btn-text-align">Edit Product</h4>
+                            </button>
+
+                        </div>
+                        <div fxFlex fxLayout="column" fxLayoutAlign="space-between end" fxLayoutGap="15px" fxLayoutAlign.sm="space-between center" fxLayoutAlign.xs="space-between center" style=" padding-bottom: 16px;" *ngIf="scrape?.status!='Scrapping Completed'">
+                            <button class="menu-button-disabled" fxLayout="row" fxLayoutAlign="center center" *ngIf="scrape?.status!='Scrapping Completed'">
+                              <img src="/assets/icons/upload-disabled.png" alt="" class="button-icon">
+                              <h4 class="btn-text-align">Upload to ebay</h4>
+                            </button>
+                            <button class="menu-button-disabled" fxLayout="row" fxLayoutAlign="center center" *ngIf="scrape?.status!='Scrapping Completed'">
+                              <img src="/assets/icons/download-disabled.png" alt="" class="button-icon">
+                              <h4 class="btn-text-align">Download CSV</h4>
+                            </button>
+                            <button class="menu-button-disabled" fxLayout="row" fxLayoutAlign="center center" *ngIf="scrape?.status!='Scrapping Completed'">
+                              <img src="/assets/icons/edit-disabled.png" alt="" class="button-icon">
+                             <h4 class="btn-text-align">Edit Product</h4>
+                            </button>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

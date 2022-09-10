@@ -1,0 +1,57 @@
+<div style="background-color: white; width: 100%;border-radius: 10px;">
+    <div fxLayout="column" fxLayoutGap="20px">
+        <div fxLayout="row" fxLayout.xs="column" style=" border-bottom: solid 1px #bfc4ca;">
+            <div fxFlex="50" fxLayoutGap="10px" fxLayout="row wrap" style="padding: 25px 35px 25px 25px">
+              <div fxLayoutAlign="start center" *ngFor="let icon of buttonIcon" style="padding-top: 10px;">
+                <button class="logo-button">
+                    <img [src]="icon.logo" alt="" width="100%" height="100%">
+                </button>
+              </div>
+            </div>
+            <div fxFlex='50' fxLayout="row" fxLayout.md="column" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="15px" style="padding: 25px 50px 25px 0px">
+              <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutAlign.xs="start center" fxLayoutGap="10px">
+                 <h3 class="header-text">Product data extraction frequency</h3>
+                 <h2 class="header-number">202/500</h2>
+                </div>
+              <button class="extract-button" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px">
+                  <h4 class="extract-button-text">Extract products</h4>
+                  <img src="/assets/icons/arrow-left.png" alt="img" style=" height: 15px;width: 15px;">
+              </button>
+            </div>
+          </div>
+
+
+          <div fxLayout='row' fxLayout.sm='column' fxLayout.xs='column' fxLayoutGap.sm="20px"  fxLayoutGap.xs="20px"  fxLayoutGap="10px" style="padding: 0px 25px">
+            <div fxFlex='65' fxLayout='row' fxLayoutGap="10px" fxLayout.xs='column' fxLayoutGap.xs="10px">
+                <div fxLayout='column'>
+                    <h4 class="number-product-text">Number of product draws</h4>
+                    <input type="text" placeholder="100" class="number-product-input" style="width: 50%;">
+                </div>
+                <div fxLayout='column'>
+                    <h4 class="url-text">URL</h4>
+                    <div fxLayout='row'>
+                       <input type="text" class="number-product-input" placeholder="https://www.mercari.com/jp/search/?sort_order=&keyw" style="border-right: none;border-radius: 7px 0px 0px 7px;">
+                       <button class="product-display-button" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px"> 
+                           <img src="/assets/icons/search-icon.png" alt="" height="22px" width="22px">
+                           <h4 class="product-display-text">Product<br>Display</h4>
+                       </button>
+                    </div>
+                </div>
+            </div>
+            <div fxFlex fxLayoutAlign="center end">
+                <div class="current-select-div" fxLayout='row' fxLayoutGap="35px" fxLayoutAlign="center start">
+                    <h4 class="current-select-text">Current selections</h4>
+                </div>
+            </div>
+        </div>
+     <div fxLayout="row "  style="padding-top:100px ;">
+           
+     </div>
+     <div fxLayout="row " fxLayoutAlign="center" >
+           <div fxLayout="row ">
+              <h4 class="text">Get URL from flea market site displayed above and enter it in the product display field.</h4>                      
+            </div>
+        
+        </div>
+    </div>
+</div>

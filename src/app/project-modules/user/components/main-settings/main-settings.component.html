@@ -1,0 +1,16 @@
+<div fxLayout="column" fxLayoutGap='20px' >
+    <div fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap='20px' fxLayoutGap.xs="5px" class="nav-div">
+    <div class="selected-div" fxLayoutAlign="center center" routerLinkActive="settings-active-div">
+      <h3 class="nav-title" [routerLink]="['CustomSettings']" routerLinkActive="settings-active" >Custom Settings</h3>
+    </div>
+      <div  class="selected-div" fxLayoutAlign="center center" routerLinkActive="settings-active-div">
+        <h3 class="nav-title"  [routerLink]="['SubscriptionPlan']" routerLinkActive="settings-active" >Subscription Plan</h3>
+      </div>
+      <div class="selected-div" fxLayoutAlign="center center" routerLinkActive="settings-active-div">
+        <h3 class="nav-title" [routerLink]="['MyTemplate']" routerLinkActive="settings-active">My Template</h3>
+      </div>
+    </div>
+<router-outlet></router-outlet>
+</div>
+
+

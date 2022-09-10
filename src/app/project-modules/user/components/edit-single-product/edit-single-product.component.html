@@ -1,0 +1,73 @@
+<div class="main-div">
+  <div fxLayout='column' fxLayoutGap='20px'>
+
+    <div fxLayout='row' fxLayoutAlign="center start" style="position: relative;">
+      <h3 class="edit-heading">Edit Product</h3>
+      <img src="/assets/icons/close-no-border.png" alt="" height="35px" width="35px" style="position: absolute;right: 0px; cursor: pointer;" (click)="closeDialog()">
+    </div>
+<form [formGroup]="formGroup" >
+
+
+    <div fxLayout='row' fxLayout.md='column' fxLayout.sm='column' fxLayout.xs='column' fxLayoutGap='20px'>
+      <div fxFlex='25' fxLayout='row' fxLayout.xs='row wrap'>
+        <div fxFlex='40'><h3 class="form-label">Photo :</h3></div>
+        <div fxFlex>
+          <div style="position: relative;width: fit-content;">
+            <img [src]="product?.photos" alt="" style="width: 150px;height:150px;border-radius: 5px;">
+            <!-- <img src="/assets/icons/close-border.png" alt="" style="position: absolute;height: 35px;width: 35px;top: -15px;right: -15px;cursor: pointer;"(click)="remove(0)" > -->
+          </div>
+
+        </div>
+      </div>
+      <!-- <div fxFlex='75' fxLayoutAlign="center center" style="padding-top:5px;">
+        <div fxLayoutAlign="space-between center" fxLayout='row' fxLayout.sm='column' fxLayout.xs='column' fxLayoutGap='10px'  style="border-radius: 5px;border: solid 1px #707070;width: 100%;padding: 5px 15px 5px 15px;">
+          <div fxLayout='row'  fxLayoutGap='15px' class="product-icons-div">
+            <div *ngFor="let item of list ;let i = index" style="position: relative;">
+              <img *ngIf="i != 0" [src]="item.image" alt="" style="width: 91px;height: 91px;border-radius: 5px;">
+              <img *ngIf="i != 0" src="/assets/icons/close-border.png" alt="" style="position: absolute;height: 25px;width: 25px;right: -10px;top: -10px;cursor: pointer;" (click)="remove(i)">
+            </div>
+          </div>
+          <button class="browse-button">Browse</button>
+        </div>
+      </div> -->
+    </div>
+
+    <div fxLayout='row' fxLayout.md='column' fxLayout.sm='column' fxLayout.xs='column' fxLayoutGap='20px'>
+
+       <div fxFlex fxLayout='column' >
+         <div fxLayout='row' fxLayout.xs='column' fxLayoutGap.xs='10px' fxLayoutAlign="space-between start">
+           <div class="form-label-div"><h3 class="form-label">Title :</h3></div>
+           <input type="text" class="form-input" formControlName="product_name" placeholder="Enter product name">
+         </div>
+         <div fxLayout='row' fxLayout.xs='column' fxLayoutGap.xs='10px' fxLayoutAlign="space-between start">
+           <div class="form-label-div"><h3 class="form-label">Description :</h3></div>
+           <textarea type="textarea" formControlName="description"  class="form-textarea"></textarea>
+        </div>
+       </div>
+
+       <div fxFlex fxLayout='column' fxLayoutGap='10px' >
+        <div fxLayout='row' fxLayout.xs='column' fxLayoutGap.xs='10px' fxLayoutAlign="space-between start">
+          <div class="form-label-div"><h3 class="form-label">Category :</h3></div>
+          <input type="text" class="form-input" placeholder="Enter category" formControlName="category">
+        </div>
+        <div fxLayout='row' fxLayout.xs='column' fxLayoutGap.xs='10px' fxLayoutAlign="space-between start">
+          <div class="form-label-div"><h3 class="form-label">Price :</h3></div>
+          <input type="text" class="form-input" placeholder="Enter price" formControlName="price">
+        </div>
+        <div fxLayout='row' fxLayout.xs='column' fxLayoutGap.xs='10px' fxLayoutAlign="space-between start">
+          <div class="form-label-div"><h3 class="form-label">Brand :</h3></div>
+          <input type="text" class="form-input" placeholder="Enter brand name" formControlName="brand">
+        </div>
+        <div fxLayout='row' fxLayout.xs='column' fxLayoutGap.xs='10px' fxLayoutAlign="space-between start">
+          <div class="form-label-div"><h3 class="form-label">Condition :</h3></div>
+          <input type="text" class="form-input" placeholder="Enter condition" formControlName="condition">
+        </div>
+       </div>
+    </div>
+  </form>
+    <div fxLayoutAlign="center center" style="padding-top: 40px;">
+      <button class="save-button" (click)="formGroup.valid?editProduct(formGroup?.value):toastr.error('Enter required fields')">Save Changes</button>
+    </div>
+
+  </div>
+</div>

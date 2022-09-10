@@ -1,0 +1,90 @@
+<div class="full-height">
+    <img src="/assets/images/access-page.png" alt="background" class="background-img">
+    <div class="main-div" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutGap="20pxpx">
+        <div fxFlex fxLayoutAlign="center center" style="padding-top: 50px;">
+            <div fxLayout="column" fxLayoutGap="15px" class="code-div" fxLayoutAlign.xs="center center" fxLayoutAlign.sm="center center">
+                <img src="/assets/icons/logo-blue.png" alt="" height="45px" width="40px">
+                <h4 class="card-title">Access to the service</h4>
+                <div class="infodiv">
+                    <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy
+                    </p>
+                </div>
+                <div class="form-div" fxLayout="row" fxLayoutAlign="start center">
+                    <input type="text" class="form-input" placeholder="Input your access code">
+                    <button class="access-button" (click)="accessCode()">認証</button>
+                </div>
+            </div>
+        </div>
+        <div fxFlex fxLayout=column fxLayoutAlign="center center" style="padding-top: 50px;">
+
+            <!-- Subscription card -->
+            <div class="card" fxLayout="column" *ngIf="selectedcard=='card1' ">
+                <div class="yellow-card">
+                    <h4 class="tag">Student</h4>
+                </div>
+                <div fxLayout="column" style="padding-bottom: 40px;">
+                    <div fxLayout="column" fxLayoutAlign="center center">
+                        <img style="margin-top: 15px;" class="card-logo" [src]='item?.logo'>
+                        <h4 class="card-plan">Anchor Plan</h4>
+                        <h4 class="price">Free <span class="price-sub" style=" color: #a5a5a5;font-weight: normal;">/ 6 month</span>
+                        </h4>
+                    </div>
+                    <div fxLayout="column" style="padding: 0px 10%;margin-bottom: 10px;">
+                        <div fxLayout="row" fxLayoutAlign='center center'>
+                            <h4 class="discription">最大在庫確認数</h4>
+                            <div fxFlex class="dotted-line"></div>
+                            <h4 class="item-pricing">{{item?.label}} 件 </h4>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign='center center'>
+                            <h4 class="discription">1日の在庫確認回数</h4>
+                            <div fxFlex class="dotted-line"></div>
+                            <h4 class="item-pricing"> {{item?.label1}} 回</h4>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign='center center'>
+                            <h4 class="discription">一回の商品データ抽出数 </h4>
+                            <div fxFlex class="dotted-line"></div>
+                            <h4 class="item-pricing">10 〜 {{item?.label2}} 商品 </h4>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign='center center'>
+                            <h4 class="discription">1ヶ月の商品データ抽出回数 </h4>
+                            <div fxFlex class="dotted-line"></div>
+                            <h4 class="item-pricing">{{item?.label3}} 回</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div fxLayout="column" *ngIf="selectedcard=='card1' " fxLayoutAlign="center center" style="margin-top: 30px;padding:0px 10px;">
+                <div fxLayoutAlign="center center">
+                    <input style="height: 20px; width: 20px;cursor: pointer;" type="checkbox" (click)="checkStatus()"><span class="privacy">Agree with Terms and Condition and Privacy Policy</span>
+                </div>
+
+                <button class="form-button" *ngIf="!check ">Start </button>
+                <button class="form-button-active" (click)="checkSubscription()" *ngIf="check ">Start </button>
+            </div>
+
+            <!-- detail card -->
+            <div class="card " *ngIf="selectedcard=='card2' " style="padding: 35px 10% 0px 10%;margin-bottom: 50px;">
+                <form>
+                    <div fxLayout="column" fxLayoutGap="20px">
+                        <div fxLayout="column">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="detail-input" placeholder="Enter You Name">
+                        </div>
+                        <div fxLayout="column">
+                            <label class="form-label">Phone Number</label>
+                            <input type="text" class="detail-input" placeholder="Enter You Number">
+                        </div>
+                        <div fxLayout="column">
+                            <label class="form-label">Email</label>
+                            <input type="text" class="detail-input" placeholder="Enter You Email">
+                        </div>
+                        <div fxLayoutAlign="center">
+                            <button class="form-button-active" (click)="onSubmit()">Start </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

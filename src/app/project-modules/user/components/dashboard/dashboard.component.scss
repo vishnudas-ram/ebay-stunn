@@ -1,0 +1,325 @@
+// .main-div {
+//     background-color: #f7f9fc;
+// }
+.graph-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  // margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.canvas-div {
+  width: 100%;
+  // min-width: 600px;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.canvas-div::-webkit-scrollbar {
+  display: none;
+}
+
+.graph-title-main {
+  font-size: 18px;
+  color: #3c3c3c;
+  margin-top: 8px;
+}
+
+.graph-title-sub {
+  font-size: 18px;
+  color: #b7b7b7;
+}
+
+.graph-title-number {
+  color: #3c3c3c;
+  font-size: 25px;
+  margin-left: 5px;
+}
+
+.card {
+  background-color: white;
+  padding: 4% 5%;
+  height: fit-content;
+  border-radius: 20px;
+}
+
+.btn-text-align {
+  margin-top: 14px;
+}
+
+.menu-button {
+  box-sizing: border-box;
+  background-color: #0064d2;
+  border-radius: 30px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.6px;
+  text-align: center;
+  // padding: 0px 13px;
+  outline: none;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  color: white;
+  width: 92%;
+  height: 40px;
+  white-space: nowrap;
+  &:hover {
+    background-color: #003e83;
+    color: white;
+  }
+}
+
+.logo {
+  height: 50px;
+  width: 100%;
+}
+
+.status-button {
+  width: fit-content;
+  height: 40px;
+  text-align: center;
+  padding: 0px 13px 5px 13px;
+  font-size: 18px;
+  border-radius: 28px;
+  outline: none;
+  border: none;
+}
+
+.common-button {
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.46;
+  letter-spacing: normal;
+  white-space: nowrap;
+}
+
+.status-button-one {
+  color: #f7cc85;
+  background-color: #fffaf2;
+}
+
+.status-button-two {
+  color: #8bc3f2;
+  background-color: #f4faff;
+}
+
+.status-button-three {
+  color: #96eeb1;
+  background-color: #f7f9fc;
+}
+
+.status-button-four {
+  color: #ef847b;
+  background-color: #fff6f2;
+}
+
+.date-style {
+  font-size: 15px;
+  color: #3c3c3c;
+}
+
+.progressbar {
+  width: 100%;
+  height: 20px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.button-icon {
+  height: 20px;
+  width: 20px;
+  margin: 0px 10px 0px 0px;
+}
+
+.menu-button-disabled {
+  box-sizing: border-box;
+  background-color: #ededed;
+  color: #b7b7b7;
+  border-radius: 30px;
+  font-size: 15px;
+  border: none;
+  letter-spacing: 0.6px;
+  text-align: center;
+  // padding: 0px 13px;
+  outline: none;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  width: 92%;
+  height: 40px;
+  white-space: nowrap;
+}
+
+.underline-div {
+  width: 100%;
+  border-bottom: solid 1px #ededed;
+}
+
+.Total-Active-Products {
+  font-size: 13px;
+  color: #3c3c3c;
+}
+
+.item-number {
+  color: #3c3c3c;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-align: center;
+}
+
+.common-style {
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.suffix {
+  color: #b7b7b7 !important;
+  font-size: 13px !important;
+}
+
+.orange {
+  ::ng-deep .mat-progress-bar-fill::after {
+    background-color: #f7cc85 !important;
+    border-radius: 100px !important;
+  }
+  ::ng-deep .mat-progress-bar-buffer {
+    background: rgb(255, 243, 224) !important;
+  }
+}
+
+.blue {
+  ::ng-deep .mat-progress-bar-fill::after {
+    background-color: #8bc3f2 !important;
+    border-radius: 100px !important;
+  }
+  ::ng-deep .mat-progress-bar-buffer {
+    background: hsl(208, 86%, 92%) !important;
+  }
+}
+
+.green {
+  ::ng-deep .mat-progress-bar-fill::after {
+    background-color: #96eeb1 !important;
+    border-radius: 100px !important;
+  }
+  ::ng-deep .mat-progress-bar-buffer {
+    background: hsl(137, 80%, 90%) !important;
+  }
+}
+
+.red {
+  ::ng-deep .mat-progress-bar-fill::after {
+    background-color: #ef847b !important;
+    border-radius: 100px !important;
+  }
+  ::ng-deep .mat-progress-bar-buffer {
+    background: hsl(6, 88%, 94%) !important;
+  }
+}
+.no-scrape-data {
+  height: 250px;
+  border-radius: 20px;
+  background-color: #ffffff;
+  margin-right: 20px;
+}
+.no-data-label {
+  font-size: 25px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: center;
+  color: #b7b7b7;
+}
+.scrape-button {
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.6px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 30px;
+  background-color: #0064d2;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  width: 220px;
+  height: 50px;
+  padding: 5px 10px 8px 10px;
+}
+.mat-menu-div {
+  background-color: #ffffff;
+  margin: 10px 30px;
+}
+.mat-menu-div-first {
+  border-bottom: solid 1px #ededed;
+  margin-bottom: 5px;
+}
+.search-word {
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: #b7b7b7;
+}
+.product-card {
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: #3c3c3c;
+}
+.Inventory-check-text {
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: 0.6px;
+  text-align: left;
+  color: #b7b7b7;
+  margin-top: -2px;
+}
+.progress-text {
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: #8aecb2;
+}
+.time-text {
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: normal;
+  text-align: left;
+  color: #b7b7b7;
+}
+

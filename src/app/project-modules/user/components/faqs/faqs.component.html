@@ -1,0 +1,19 @@
+<div fxLayout="column" style="border-radius: 20px;padding:32px;background-color: #fff;">
+  
+      <mat-accordion > 
+            <mat-expansion-panel *ngFor="let list of faqList">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <div class="question">Q. {{list.question}} </div>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-chip-list style="height: fit-content;">
+                    <div class="answer">A. {{list.answer}} </div>
+                </mat-chip-list>
+            </mat-expansion-panel>
+        
+        </mat-accordion>
+   
+    </div> 
+     
+        

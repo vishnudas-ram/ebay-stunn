@@ -1,0 +1,47 @@
+.nav-div {
+  min-height: 80px;
+   width: 100%;
+   background-color:white;
+   border-radius: 20px;
+   padding: 15px 20px 0px  40px;
+  //  box-sizing: border-box;
+  }
+  .nav-title {
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: 0.36px;
+    text-align: left;
+    cursor: pointer;
+    color: #b7b7b7;
+  }
+.settings-active{
+  color: #0064d2;
+
+}
+.settings-active-div{
+  border-bottom: 4px solid #0064d2;
+}
+.selected-div{
+  height: 80px;
+  padding: 0px 20px;
+}
+
+@media (max-width:600px) {
+  // .selected-div{
+  //   height:45px;
+
+  // }
+  .nav-div{
+    padding: 15px 10px 0px  10px;
+  }
+}
+@media (max-width:500px) {
+  .selected-div{
+    height:45px;
+
+  }
+
+}

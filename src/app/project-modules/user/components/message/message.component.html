@@ -1,0 +1,45 @@
+<div fxLayout='row' fxLayout.sm='column' fxLayout.xs='column' fxLayoutGap='20px' fxLayoutGap.sm='20px' fxLayoutGap.xs='20px' style="background-color: white;border-radius: 20px;padding: 30px;height: 100%;">
+ <div fxFlex='35' fxLayout='column' >
+  <div style="position: relative;">
+    <img src="/assets/icons/search-icon.png" alt="" class="search-icon">
+    <input type="text" placeholder="検索" class="input-box">
+  </div>
+  <div class="message-icon-div">
+      <div fxLayout='row' fxLayoutGap='10px' *ngFor="let item of List" style="border-bottom: solid 1px #ededed;padding-top: 5px 0px;margin-right: 10px;">
+        <div fxLayoutAlign='center center'><button class="profile-button" [ngStyle]="{'background-color': item.color}">
+            <h1 style="color: white;font-size: 30px; font-weight: bold;margin-top: 10px;">{{item.letter}}</h1></button></div>
+        <div fxLayout='column' style="width: 100%;overflow: hidden;text-overflow: ellipsis;">
+            <div fxLayout='row' fxLayoutAlign='space-between start'>
+                <h3 class="username-style">{{item.name}}</h3>
+                <h3 class="date-time">08 /12, 13:45</h3>
+            </div>
+            <h3 class="users-description">Lorem Ipsum is simply dummy text of the</h3>
+        </div>
+      </div>
+  </div>
+ </div>
+
+ <div fxFlex='65' fxLayout='column' fxLayoutGap='20px' class="messaging-div">
+    <div fxLayout='row' fxLayoutAlign='space-between center' class="border-style">
+        <h3 class="message-To">To : <span class="message-To-data">Shane Martine</span></h3>
+        <h3 class="date-text">2021 / 8 /12</h3>
+    </div>
+    <div fxLayoutAlign='start center' class="border-style">
+        <h3 class="message-To">From : <span class="message-To-data">shini_939</span></h3>
+    </div>
+    <div fxLayoutAlign='start center' class="border-style">
+        <h3 class="message-To">Subject : <span class="message-To-data">Make an offer : shr_04 sent a message about Car toy #333960976626</span></h3>
+    </div>
+    <div class="message-div">
+        <h3 class="message-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula 
+            eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
+            montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu.
+        </h3>
+        <h3 class="traslate-link">Translate</h3>
+    </div>
+    <div fxLayout='row' fxLayoutAlign='center center' fxLayoutGap='10px' style="padding-top: 25px;">
+        <button class="accept-button">Accept Offer</button>
+        <button class="reply-button">Reply</button>
+    </div>
+ </div>
+</div>

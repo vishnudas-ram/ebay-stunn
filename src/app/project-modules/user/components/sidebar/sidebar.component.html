@@ -1,0 +1,76 @@
+<div class="sidebar-main" [ngClass]="{'hide-shadow':(isSidebarOpened==false && hidden==true)}">
+    <div fxLayout='column' fxLayoutGap="20px">
+        <button class="sidebar-btn" [ngClass]="{'padding-sidebar':isSidebarOpened==false}">
+
+
+         <div class="button-div" flexLayout='row' fxLayoutAlign="start center" fxLayoutGap="10px" [routerLink]="['dashboard']" routerLinkActive="router-link-active">
+          <span>
+              <img src="/assets/icons/dashboard.svg" alt="" class="side-Icon visible">
+              <img src="/assets/icons/dashboard-active.svg" alt="" class="side-Icon active-visible">
+
+          </span>
+          <span class="side-title" *ngIf="isSidebarOpened">Dashboard</span>
+         </div>
+      </button>
+
+      <button class="sidebar-btn" [ngClass]="{'padding-sidebar':isSidebarOpened==false}">
+        <div class="button-div" flexLayout='row' fxLayoutAlign="start center" fxLayoutGap="10px" [routerLink]="['seminar']" routerLinkActive="router-link-active">
+            <span>
+                <img src="/assets/icons/top-sell.png" alt="" class="side-Icon visible">
+                <img src="/assets/icons/top-sell-active.png" alt="" class="side-Icon active-visible">
+
+            </span>
+            <span class="side-title" *ngIf="isSidebarOpened">Top selling</span>
+        </div>
+
+     </button>
+
+        <button class="sidebar-btn" [ngClass]="{'padding-sidebar':isSidebarOpened==false}">
+          <div class="button-div" flexLayout='row' fxLayoutAlign="start center" fxLayoutGap="10px" [routerLink]="['seminar']" routerLinkActive="router-link-active">
+              <span>
+                  <img src="/assets/icons/lessons.svg " alt="" class="side-Icon visible">
+                  <img src="/assets/icons/lessons - active.svg " alt="" class="side-Icon active-visible">
+
+              </span>
+              <span class="side-title" *ngIf="isSidebarOpened">Seminar</span>
+          </div>
+
+       </button>
+
+
+       <button class="sidebar-btn" [ngClass]="{'padding-sidebar':isSidebarOpened==false}">
+        <div class="button-div" flexLayout='row' fxLayoutAlign="start center" fxLayoutGap="10px" [routerLink]="['messages']" routerLinkActive="router-link-active">
+            <span>
+                <img src="/assets/icons/msg.png" alt="" class="side-Icon visible">
+                <img src="/assets/icons/msg-active.png" alt="" class="side-Icon active-visible">
+
+            </span>
+            <span class="side-title" *ngIf="isSidebarOpened">Messaging</span>
+        </div>
+
+     </button>
+
+        <button class="sidebar-btn" [ngClass]="{'padding-sidebar':isSidebarOpened==false}">
+          <div class="button-div" flexLayout='row' fxLayoutAlign="start center" fxLayoutGap="10px" [routerLink]="['settings']" routerLinkActive="router-link-active">
+              <span>
+                  <img src="/assets/icons/settings.svg " alt="" class="side-Icon visible">
+                  <img src="/assets/icons/settings-active.svg " alt="" class="side-Icon active-visible">
+               </span>
+              <span class="side-title" *ngIf="isSidebarOpened">Settings</span>
+          </div>
+       </button>
+
+
+        <!-- <button class="sidebar-btn" [ngClass]="{'padding-sidebar':isSidebarOpened==false}">
+          <div class="button-div" flexLayout='row' fxLayoutAlign="start center" fxLayoutGap="10px" (click)="general.logOut()">
+              <span>
+                  <img src="/assets/icons/logout.png " alt="" class="side-Icon visible">
+                  <img src="/assets/icons/logout-active.png " alt="" class="side-Icon active-visible">
+               </span>
+              <span class="side-title" *ngIf="isSidebarOpened">Logout</span>
+          </div>
+       </button> -->
+
+
+    </div>
+</div>

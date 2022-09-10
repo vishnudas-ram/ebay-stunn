@@ -1,0 +1,30 @@
+<div fxLayout="column" class="full-height ">
+    <div class="background-div">
+        <img [src]="image" class="background-img">
+
+        <div fxLayout="row" fxLayout.xs="column" class="main-div">
+            <div fxFlex fxLayout="column" style="height: 100%;">
+                <div class="logo-div" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center" fxLayoutAlign.xs=" center center ">
+                    <img src="/assets/icons/ec_listener_icon.png" alt="icon" class="icon">
+                    <p class="ec-lister">EC-Lister for ebay</p>
+                </div>
+                <div class="login-div" fxLayout="column" fxLayoutGap="40px" fxLayoutAlign="center start" fxLayoutAlign.xs="center center">
+                    <h4 class="main-title">ebay for all</h4>
+                    <div class="infodiv">
+                        <p class="info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+                            specimen book. </p>
+                    </div>
+                        <button class="submit-button" (click)='onLogin()'>
+                            Login with ebay
+                        </button>                   
+                    </div>
+            </div>
+            <div fxFlex fxLayoutAlign="center center">
+                <img fxHide.gt-xs src="/assets/icons/ec_listener_icon.png" alt="icon" class="icon-mobile">
+            </div>
+        </div>
+    </div>
+    <div fxFlex fxHide.xs>
+
+    </div>
+</div>

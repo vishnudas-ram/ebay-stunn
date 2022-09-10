@@ -1,0 +1,251 @@
+<div *ngIf="isLoading" style="height: 100%; " fxLayoutAlign="center center">
+  <mat-spinner color="primary" diameter="50">hhh</mat-spinner>
+</div>
+<div *ngIf="!isLoading">
+    <h2 class="heading common-style">Edit Products</h2>
+
+    <div class="main-div" fxLayout="row" fxLayoutGap="13px" fxLayout.sm="column" fxLayout.xs="column">
+        <!-- filter section -->
+
+        <div class="filter-div" fxFlex="21" fxLayout="column" fxFlex.md fxFlex.sm fxFlex.xs>
+            <h4 class="common-style filter-title">Filter</h4>
+            <form [formGroup]="formGroup">
+                <div fxLayout="column">
+
+                    <div fxLayout="column" fxLayout.sm="row"  fxLayoutGap.sm="20px" >
+                        <div fxFlex>
+                            <div fxLayout="row" fxLayoutAlign="space-between start">
+                                <h4 class="common-style font-style">Exclude Keywords</h4>
+                                <div>
+                                 <img src="/assets/icons/help.svg" alt="" height="18px" width="18px" [matMenuTriggerFor]="menuExclude">
+                                 <mat-menu #menuExclude="matMenu" xPosition="before">aaaaaa</mat-menu>
+                                </div>
+                            </div>
+                            <input type="text" class="input-box">
+                        </div>
+
+                        <div fxFlex #menuBtn>
+                            <div fxLayout="row" fxLayoutAlign="space-between start">
+                                <h4 class="common-style font-style">Delivery Date</h4>
+                                <div>
+                                    <img src="/assets/icons/help.svg" alt="" height="18px" width="18px" [matMenuTriggerFor]="menuDeliver">
+                                    <mat-menu #menuDeliver="matMenu" xPosition="before">bbbb</mat-menu>
+                                </div>
+                            </div>
+                            <button class="form-select-dropdown drop-btn text-style" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+
+                              <div fxLayoutAlign="space-between">
+                                {{selectedType}}
+                                <mat-icon></mat-icon>
+                              </div>
+                            </button>
+                            <mat-menu #menu="matMenu" class="form-select-menu-list drop-menu scroll">
+                                <button mat-menu-item class="dropdown-item" (click)="selectType(unit)" *ngFor="let unit of deliveryDate" style="width: 100%;" [style.width.px]="menuBtn.offsetWidth">
+                                  {{unit}}
+                                </button>
+                            </mat-menu>
+                        </div>
+                    </div>
+
+                    <div fxLayout="column" fxLayout.sm="row"  fxLayoutGap.sm="20px" >
+                        <div fxFlex>
+                            <div fxLayout="row" fxLayoutAlign="space-between start">
+                                <h4 class="common-style font-style">Price</h4>
+                                <div>
+                                    <img src="/assets/icons/help.svg" alt="" height="18px" width="18px" [matMenuTriggerFor]="menuPrice">
+                                    <mat-menu #menuPrice="matMenu" xPosition="before">ccccc</mat-menu>
+                                </div>
+                            </div>
+                            <div class="custom-slider" style="margin-bottom: 23px;">
+                                <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options" style="margin-top: -5px;"></ngx-slider>
+                            </div>
+                        </div>
+
+                        <div fxFlex>
+                            <div fxLayout="row" fxLayoutAlign="space-between start">
+                                <h4 class="common-style font-style">Evaluation Exclusion</h4>
+                                <div>
+                                    <img src="/assets/icons/help.svg" alt="" height="18px" width="18px" [matMenuTriggerFor]="menuEval" style="margin-top: 3px;">
+                                    <mat-menu #menuEval="matMenu" xPosition="before">zzzzz</mat-menu>
+                                </div>
+                            </div>
+                            <div fxLayout="row" fxLayoutAlign="space-between start">
+                                <input type="text" class="input-box" placeholder="Good number">
+
+                                <p class="more-than common-style">more than</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div fxLayout="column" fxLayout.sm="row"  fxLayoutGap.sm="20px">
+                        <div fxFlex>
+                            <div fxLayout="row" fxLayoutAlign="space-between start">
+                                <h4 class="common-style font-style">Title Replacement</h4>
+                                <div>
+                                    <img src="/assets/icons/help.svg" alt="" height="18px" width="18px" [matMenuTriggerFor]="menuTitle">
+                                    <mat-menu #menuTitle="matMenu" xPosition="before">ddddd</mat-menu>
+                                </div>
+                            </div>
+                            <div fxLayout="column" fxLayout.sm="row"  fxLayoutGap.sm="20px" >
+                                <input type="text" class="input-box" placeholder="Word before replacement">
+                                <h4 class="common-style font-style" style="text-align: center;">To</h4>
+                                <input type="text" class="input-box" placeholder="Word after replacement">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div fxLayout="column" fxLayout.sm="row" fxLayoutGap="20px"  fxLayoutGap.sm="20px" >
+                        <div fxFlex>
+                            <div fxLayout="row" fxLayoutAlign="space-between start">
+                                <h4 class="common-style font-style">Title Added</h4>
+                                <div>
+                                    <img src="/assets/icons/help.svg" alt="" height="18px" width="18px" [matMenuTriggerFor]="menuTitleAdd">
+                                    <mat-menu #menuTitleAdd="matMenu" xPosition="before">eeee</mat-menu>
+                                </div>
+                            </div>
+                          <div >
+                            <input type="text" class="input-box" style="margin-bottom: 8px;" placeholder="Additional words in front">
+                            <!-- <input type="text" class="input-box" style="margin-bottom: 8px;" placeholder="Additional words in back"> -->
+                          </div>
+                        </div>
+
+                        <div fxFlex>
+                          <input type="text" class="input-box margin" placeholder="Additional words in back">
+                            <!-- <div fxLayout="row" fxLayoutAlign="space-between start">
+                                <h4 class="common-style font-style">Character delete</h4>
+                                <div>
+                                    <img src="/assets/icons/help.svg" alt="" height="18px" width="18px" [matMenuTriggerFor]="menuCharacter">
+                                    <mat-menu #menuCharacter="matMenu" xPosition="before">fffff</mat-menu>
+                                </div>
+                            </div>
+                            <input type="text" class="input-box" placeholder="Character you want to delete"> -->
+                        </div>
+                    </div>
+
+                    <div fxLayout="column" fxLayout.sm="row"  fxLayoutGap.sm="20px">
+                      <div fxFlex>
+                          <div fxLayout="row" fxLayoutAlign="space-between start">
+                                <h4 class="common-style font-style">Character delete</h4>
+                                <div>
+                                    <img src="/assets/icons/help.svg" alt="" height="18px" width="18px" [matMenuTriggerFor]="menuCharacter">
+                                    <mat-menu #menuCharacter="matMenu" xPosition="before">fffff</mat-menu>
+                                </div>
+                            </div>
+                            <input type="text" class="input-box" placeholder="Character you want to delete">
+                      </div>
+                        <div fxFlex>
+                            <div fxLayout="row" fxLayoutAlign="space-between start">
+                                <h4 class="common-style font-style">Brand name overwrite</h4>
+                                <div>
+                                    <img src="/assets/icons/help.svg" alt="" height="18px" width="18px" [matMenuTriggerFor]="menuBrand" style="margin-top: 3px;">
+                                    <mat-menu #menuBrand="matMenu" xPosition="before">ggggg</mat-menu>
+                                </div>
+                            </div>
+                            <input type="text" class="input-box" placeholder="Word">
+                        </div>
+                    </div>
+                    <div fxLayout="column" fxLayout.sm="row"  fxLayoutGap.sm="20px">
+                      <div fxFlex>
+                          <div fxLayout="row" fxLayoutAlign="space-between start">
+                              <h4 class="common-style font-style">Item condition change</h4>
+                              <div>
+                                  <img src="/assets/icons/help.svg" alt="" height="18px" width="18px" [matMenuTriggerFor]="menuItem" style="margin-top: 5px;">
+                                  <mat-menu #menuItem="matMenu" xPosition="before">hhhhh</mat-menu>
+                              </div>
+                          </div>
+                          <div style="padding-bottom: 13px;">
+                              <mat-radio-group aria-label="Select an option" fxLayout="row" fxLayoutGap="20px">
+                                <mat-radio-button color="primary" value="new" [checked]='conditionType=="new"' (click)="changeConditionType('new')">New</mat-radio-button>
+                                <mat-radio-button color="primary" value="used" [checked]='conditionType=="used"' (click)="changeConditionType('used')">Used</mat-radio-button>
+                              </mat-radio-group>
+                          </div>
+                      </div>
+                      <div fxFlex></div>
+                  </div>
+                    <div fxLayout="column" fxLayout.sm="row"  fxLayoutAlign="space-between start" fxLayoutAlign.sm="center start" fxLayoutAlign.xs="start center" fxLayoutGap="10px" style="margin-top: 30px;">
+                        <button class="button-common button-blue" style="padding: 5px 5px 10px 5px;">Apply</button>
+                        <button class="button-common button-white" style="padding: 5px 5px 10px 5px;">Reset</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        <!-- product section -->
+        <div class="product-main-div" fxFlex fxLayout="column">
+
+            <div class="product-div" fxLayout="column" fxLayoutGap="13px">
+                <div style="min-width: 700px;">
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <div fxFlex="4">
+                        </div>
+                        <div fxFlex="15">
+                            <h4 class="common-style font-style">Photo</h4>
+                        </div>
+                        <div fxFlex="17">
+                            <h4 class="common-style font-style">Title</h4>
+                        </div>
+                        <div fxFlex="17">
+                            <h4 class="common-style font-style">Category</h4>
+                        </div>
+                        <div fxFlex="17">
+                            <h4 class="common-style font-style">Price</h4>
+                        </div>
+                        <div fxFlex="17">
+                            <h4 class="common-style font-style">Condition</h4>
+                        </div>
+                        <div fxFlex="13" fxLayout="row" fxLayoutGap="15px">
+                            <h4 class="common-style font-style">Edit</h4>
+                            <h4 class="common-style font-style">Delete</h4>
+                        </div>
+                    </div>
+                    <div fxLayout="column" fxLayoutGap="15px" style="margin-top:5px ;">
+                        <div fxLayout="row" fxLayoutGap="10px" *ngFor="let item of productList" style="border-top: 2px solid #ededed; padding-top: 29px;">
+                            <div fxFlex="4">
+                                <input type="checkbox" class="check-box" name="" value="" style="margin-top: 40px;cursor: pointer;">
+                            </div>
+                            <div fxFlex="15">
+                                <img [src]="item?.photos" alt="" height="105px" width="105px">
+                            </div>
+
+                            <div fxLayout="column" fxFlex>
+                                <div fxLayout="row" fxLayoutGap="5px">
+                                    <div fxFlex>
+                                        <h4 class="common-style font-style" style=" word-break: break-all;">{{item?.product_name}}</h4>
+                                    </div>
+                                    <div fxFlex>
+                                        <h4 class="common-style font-style" style=" word-break: break-all;">{{item?.category}}</h4>
+                                    </div>
+                                    <div fxFlex>
+                                        <h4 class="common-style font-style">{{item?.price}}</h4>
+                                    </div>
+                                    <div fxFlex>
+                                        <h4 class="common-style font-style" style=" word-break: break-all;">{{item?.condition}}</h4>
+                                    </div>
+                                </div>
+                                <div class="detail-text" >
+                                    <p class="detail-text-style" > {{item?.description}}</p>
+                                </div>
+                            </div>
+
+                            <div fxFlex="13" fxLayout="row" fxLayoutGap="20px" >
+                                <img src="/assets/icons/edit-black.png" alt="" height="23px" width="23px" (click)="editProduct(item)" style="cursor: pointer;">
+                                <img src="/assets/icons/trash-black.png" alt="" height="23px" width="23px" (click)="openConfirmationDialog(item?.id)" style="cursor: pointer;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div fxLayout="row" fxLayoutGap="32px" fxLayoutGap.xs="5px" fxLayout.xs="column" fxLayoutAlign="end start" fxLayoutAlign.xs="start center" fxLayoutAlign.sm="center start" style="padding:70px 0px 17px 0px;">
+                    <button class="product-button-common button-white">Download CSV</button>
+                    <button class="product-button-common button-blue" (click)="bulkUpload()">Publish to ebay</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

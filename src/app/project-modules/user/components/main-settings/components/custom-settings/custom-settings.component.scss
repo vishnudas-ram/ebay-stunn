@@ -1,0 +1,156 @@
+.main-div {
+  border-radius: 20px;
+  background-color: #ffffff;
+  width: 100%;
+  padding: 30px 30px;
+}
+.withdraw-text {
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.4px;
+  text-align: left;
+  color: #3c3c3c;
+  border-bottom: 2px solid #b7b7b7;
+  padding-bottom: 15px;
+}
+
+.save-button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.6px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 30px;
+  background-color: #0064d2;
+  width: 250px;
+  height: 50px;
+  padding: 8px 10px 15px 10px;
+}
+.product-name {
+  font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.4px;
+  text-align: left;
+  color: #3c3c3c;
+  width: 200px;
+  margin-top: 6px;
+}
+.input-box {
+  border-radius: 5px;
+  border: solid 1px #b7b7b7;
+  background-color: #ffffff;
+  width: 70%;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  padding: 7px;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #b7b7b7;
+}
+.example-chip-list {
+  width: 100%;
+}
+.mat-chip {
+  border-radius: 5px;
+  background-color: #e4eefa;
+}
+.close{
+  width: 20px;
+  height: 20px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 110px;
+  height: 32px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 21px;
+  width: 21px;
+  left: 6px;
+  bottom: 6px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #0064d2;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(75px);
+  -ms-transform: translateX(75px);
+  transform: translateX(75px);
+}
+.slider.round {
+  border-radius: 33px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.keyword-box {
+  border-radius: 5px;
+  border: solid 1px #b7b7b7;
+  background-color: #ffffff;
+  width: 88%;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  padding: 7px;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #b7b7b7;
+}
+@media (max-width: 599.5px) {
+.input-box{
+  width: 100%;
+}
+.keyword-box{
+  width: 100%;
+}
+}

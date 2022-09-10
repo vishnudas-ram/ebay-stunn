@@ -1,0 +1,72 @@
+.confirm {
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #3c3c3c;
+  }
+  .action-btn-yes {
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.45;
+    letter-spacing: 0.6px;
+    height: 50px;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+    color: #ffffff;
+    margin: 20px 0px;
+    min-width: 150px;
+    text-align: center;
+    border-radius: 30px;
+    border: solid 1px #b7b7b7;
+    background-color: #0264d3;
+    padding: 5px 10px 10px 10px;
+  }
+
+  .action-btn-no {
+    box-sizing: border-box;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.45;
+    letter-spacing: 0.6px;
+    height: 50px;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+    color: #3c3c3c;
+    margin: 20px 0px;
+    min-width: 150px;
+    text-align: center;
+    border-radius: 30px;
+    border: solid 1px #707070;
+    background-color: #ffffff;
+    padding: 5px 10px 10px 10px;
+  }
+  .margin {
+    margin-left: 20px;
+  }
+
+  @media screen and (max-width: 960px) {
+    .confirm {
+        font-size: 18px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .confirm {
+        font-size: 17px;
+    }
+  }
+  
+  @media screen and (max-width: 390px) {
+    .margin {
+        margin-left: 5px;
+    }
+  }

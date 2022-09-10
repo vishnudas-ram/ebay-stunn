@@ -1,0 +1,39 @@
+<form [formGroup]="formGroup">
+<div fxLayout="column" fxLayoutGap="50px">
+  <div class="main-div" fxLayout="row wrap" fxLayout.lt-md="column">
+    <!-- <div class="content-div" fxFlex="50" fxFlex.lt-sm fxLayout="column" fxLayoutGap="10px">
+    <div class="header">
+      <h4 class="header-title">Description of item</h4>
+    </div>
+    <textarea class="textarea" placeholder="Please enter the item description here"></textarea>
+    </div> -->
+    <div class="content-div" fxFlex="50" fxFlex.lt-md fxLayout="column" fxLayoutGap="10px">
+      <div class="header" >
+    <h4 class="header-title">Payment Method</h4>
+      </div>
+      <textarea class="textarea" formControlName='payment_method' placeholder="Please enter the Payment Method description here"></textarea>
+    </div>
+    <div class="content-div" fxFlex="50" fxFlex.lt-md fxLayout="column" fxLayoutGap="10px">
+      <div class="header">
+        <h4 class="header-title">Shipping Methods</h4>
+      </div>
+      <textarea class="textarea" formControlName='shipping_method' placeholder="Please enter the Shipping Methods description here"></textarea>
+    </div>
+    <div class="content-div" fxFlex="50" fxFlex.lt-md fxLayout="column" fxLayoutGap="10px">
+      <div class="header">
+        <h4 class="header-title">Transaction Matters</h4>
+      </div>
+      <textarea class="textarea" formControlName='transaction_matter' placeholder="Please enter the Transaction Matters description here"></textarea>
+    </div>
+    <div class="content-div" fxFlex="50" fxFlex.lt-md fxLayout="column" fxLayoutGap="10px">
+      <div class="header">
+        <h4 class="header-title">To Overseas buyers notes : </h4>
+      </div>
+      <textarea class="textarea" formControlName='overseas_buyers_note' placeholder="Please enter the To Overseas buyers notes :  description here"></textarea>
+    </div>
+    </div>
+    <div  fxFlexAlign="end" fxFlexAlign.lt-md="center">
+    <button class="update-btn" (click)="UpdateMyTemplate(formGroup?.value)">Update</button>
+    </div>
+</div>
+</form>

@@ -1,0 +1,94 @@
+.main-div {
+  width: 100%;
+  border-radius: 20px;
+  background-color: #ffffff;
+  height: 100%;
+  padding: 20px;
+}
+.button-class {
+  background-color: #f7f9fc;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.6px;
+  text-align: center;
+  color: #aac2de;
+  padding: 5px 20px;
+  white-space: nowrap;
+  margin-top: 10px;
+  &:hover {
+  background-color: #0064d3;
+  color: #ffffff;
+ }
+}
+.button-class-active {
+  background-color: #0064d3;
+  color: #ffffff;
+}
+.form-input {
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.4px;
+  text-align: left;
+  color: #b7b7b7;
+  border-radius: 5px;
+  border: solid 1px #b7b7b7;
+  background-color: #ffffff;
+  width: 100%;
+  padding-left: 10px;
+  min-width: 250px;
+  height: 40px;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+.search-icon {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    right: 5px;
+    top: 17px;
+}
+.video-div {
+  border-radius: 10px;
+  box-shadow: 0 6px 45px 0 rgba(126, 126, 126, 0.16);
+  background-color: #ffffff;
+  padding: 10px 10px;
+}
+.date-class {
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.42;
+  letter-spacing: 0.24px;
+  text-align: left;
+  color: #3c3c3c;
+}
+.video-name {
+  font-size: 20px;
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: 0.4px;
+  text-align: left;
+  color: #3c3c3c;
+}
+.video-description {
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: 0.32px;
+  text-align: left;
+  color: #a0a0a0;
+}
